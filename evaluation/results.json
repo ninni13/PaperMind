@@ -1,0 +1,272 @@
+{
+  "total_questions": 15,
+  "hit_at_1": 0.7333333333333333,
+  "hit_at_3": 0.9333333333333333,
+  "hit_at_5": 1.0,
+  "results": [
+    {
+      "id": "liu2025_q1",
+      "question": "What is the main problem that ProtoGCN aims to address?",
+      "ground_truth_pages": [
+        1,
+        2,
+        8
+      ],
+      "retrieved_pages": [
+        2,
+        4,
+        2,
+        8,
+        2
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "liu2025_q2",
+      "question": "How does the Prototype Reconstruction Network generate enhanced representations?",
+      "ground_truth_pages": [
+        3,
+        4
+      ],
+      "retrieved_pages": [
+        3,
+        3,
+        7,
+        2,
+        4
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "liu2025_q3",
+      "question": "What datasets are used to evaluate ProtoGCN?",
+      "ground_truth_pages": [
+        6
+      ],
+      "retrieved_pages": [
+        7,
+        7,
+        6,
+        7,
+        8
+      ],
+      "hit@1": false,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "liu2025_q4",
+      "question": "How does ProtoGCN perform compared with state-of-the-art methods?",
+      "ground_truth_pages": [
+        6,
+        7
+      ],
+      "retrieved_pages": [
+        7,
+        7,
+        2,
+        7,
+        8
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "liu2025_q5",
+      "question": "Which component contributes the most performance improvement in the ablation study?",
+      "ground_truth_pages": [
+        7
+      ],
+      "retrieved_pages": [
+        7,
+        7,
+        7,
+        7,
+        8
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "yan2018_q1",
+      "question": "What problem does ST-GCN aim to solve compared with previous skeleton-based action recognition methods?",
+      "ground_truth_pages": [
+        1,
+        2
+      ],
+      "retrieved_pages": [
+        2,
+        6,
+        8,
+        2,
+        8
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "yan2018_q2",
+      "question": "How is the spatial-temporal graph constructed in ST-GCN?",
+      "ground_truth_pages": [
+        2,
+        3
+      ],
+      "retrieved_pages": [
+        2,
+        3,
+        3,
+        2,
+        3
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "yan2018_q3",
+      "question": "What partitioning strategies are proposed for ST-GCN?",
+      "ground_truth_pages": [
+        4,
+        5
+      ],
+      "retrieved_pages": [
+        7,
+        7,
+        7,
+        7,
+        5
+      ],
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": true
+    },
+    {
+      "id": "yan2018_q4",
+      "question": "What is the purpose of learnable edge importance weighting in ST-GCN?",
+      "ground_truth_pages": [
+        5,
+        7
+      ],
+      "retrieved_pages": [
+        6,
+        5,
+        7,
+        2,
+        7
+      ],
+      "hit@1": false,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "yan2018_q5",
+      "question": "Which partitioning strategy performs best in the ablation study, and what improvement does learnable edge importance weighting provide?",
+      "ground_truth_pages": [
+        7
+      ],
+      "retrieved_pages": [
+        7,
+        5,
+        5,
+        6,
+        4
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "xin2023_q1",
+      "question": "What are the three main categories in the proposed taxonomy of Transformer-based skeleton action recognition?",
+      "ground_truth_pages": [
+        3,
+        4
+      ],
+      "retrieved_pages": [
+        3,
+        3,
+        2,
+        6,
+        1
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "xin2023_q2",
+      "question": "What is the difference between a Transformer-style GCN and incorporating GCN into a Transformer?",
+      "ground_truth_pages": [
+        3
+      ],
+      "retrieved_pages": [
+        7,
+        3,
+        4,
+        5,
+        6
+      ],
+      "hit@1": false,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "xin2023_q3",
+      "question": "What advantages and weaknesses does the paper identify for Transformers in skeleton-based action recognition?",
+      "ground_truth_pages": [
+        3
+      ],
+      "retrieved_pages": [
+        3,
+        3,
+        11,
+        3,
+        1
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "xin2023_q4",
+      "question": "What are the main drawbacks of supervised skeleton-based action recognition methods discussed in the paper?",
+      "ground_truth_pages": [
+        3
+      ],
+      "retrieved_pages": [
+        3,
+        2,
+        17,
+        3,
+        1
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    },
+    {
+      "id": "xin2023_q5",
+      "question": "What types of methods are included under unsupervised and transfer Transformer approaches in the proposed taxonomy?",
+      "ground_truth_pages": [
+        4
+      ],
+      "retrieved_pages": [
+        4,
+        15,
+        3,
+        11,
+        6
+      ],
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true
+    }
+  ]
+}

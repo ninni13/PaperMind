@@ -1,0 +1,1320 @@
+{
+  "total_questions": 15,
+  "started_at": "2026-09-26T07:37:19.145660+00:00",
+  "pipeline": "app.ask_service.answer_question",
+  "results": [
+    {
+      "id": "liu2025_q1",
+      "paper_id": 4,
+      "question": "What is the main problem that ProtoGCN aims to address?",
+      "ground_truth_pages": [
+        1,
+        2,
+        8
+      ],
+      "status": "completed",
+      "answer": "ProtoGCN targets the difficulty of correctly distinguishing similar actions in skeleton-based action recognition — i.e., learning more discriminative, fine-grained motion representations that can amplify subtle inter-action differences and remove irrelevant distractions so similar actions can be accurately classified [Page 2][Page 8].",
+      "retrieved_pages": [
+        2,
+        4,
+        2,
+        8,
+        2
+      ],
+      "cited_pages": [
+        2,
+        8
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 8,
+          "page_number": 2,
+          "similarity": 0.576682181764465
+        },
+        {
+          "chunk_index": 21,
+          "page_number": 4,
+          "similarity": 0.567200316318825
+        },
+        {
+          "chunk_index": 6,
+          "page_number": 2,
+          "similarity": 0.54624252264163
+        },
+        {
+          "chunk_index": 49,
+          "page_number": 8,
+          "similarity": 0.54461289983386
+        },
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "similarity": 0.544135924789875
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 8,
+          "page_number": 2,
+          "content": "\nThe main contributions are summarized as follows:\n• We introduce ProtoGCN, a novel graph prototype learn-\ning method that amplifies subtle distinctions for accurate\ndifferentiation of similar actions.\n• A Prototype Reconstruction Network is proposed to adap-\ntively assemble prototypes, yielding distinctive represen-\ntations under a contrastive objective.\n• Extensive experiments on four large-scale benchmarks\n(NTU RGB+D, NTU RGB+D 120, Kinetics-Skeleton,\nand FineGYM) demonstrate that ProtoGCN consistently\nachieves state-of-the-art performance.\n2. Related Work\n2.1. Skeleton-based Action Recognition with GCNs\nConsidering the intrinsic graph-like structure of human\nskeletons, the majority of GCN-based approaches [6, 7,\n10, 25, 30, 40, 46] explicitly model the relationships us-\ning spatial-temporal graphs. ST-GCN [40] is the pioneer-\ning work integrating graph convolutions for comprehensive\nspatial-temporal modeling. Most subsequent studies adopt\nthe main framework of ST-GCN and place grea",
+          "similarity": 0.576682181764465
+        },
+        {
+          "chunk_index": 21,
+          "page_number": 4,
+          "content": "Global\nAverage\nPooling\nClassifier\n: {\n···\n}\nInput Skeleton Sequence\nIntra­sample\nCorrelation\nMotion Topology Enhancement\nPrototype Reconstruction Network\n­head Extraction\nUniversal Topology\nChannel Broadcast\nConv\nGraph Convolutional Backbone\nClassification Network\nAverage\nMomentum Update\nMemory\nBank\n···\nInput\nBatch\n···\nClass\nAggregation\nClass­Specific Contrastive Learning\n···\nBatch\nFeatures\nClass\nAggregations\nAnchor Feature\nInter­sample\nDistinction\nSample\nAssemble\nSoftmax\nTransform\nReshape\nEnhance\nOptimize\nFigure 2. The overall architecture of ProtoGCN. A Prototype Reconstruction Network is proposed to transform the representation of graph\ntopology X into a combination Z of learnable prototypes at the fine-grained joint level, thereby enhancing the distinctiveness of features. In\nspecific, the prototypes represent diverse relationship patterns between all the human joints. Additionally, at each layer of the network, the\nMotion Topology Enhancement module is integrated to capture rich a",
+          "similarity": 0.567200316318825
+        },
+        {
+          "chunk_index": 6,
+          "page_number": 2,
+          "content": "e motion features be-\ncomes more challenging, hindering the accurate classifica-\ntion of similar actions.\nThe challenge outlined above has driven us to seek a rep-\nresentation that more effectively captures the intrinsic char-\nacteristics of actions with high discriminative power. To ad-\ndress this, we propose ProtoGCN, a novel graph prototype\nlearning approach for skeleton-based action recognition. At\nthe heart of ProtoGCN lies the Prototype Reconstruction\nNetwork, which explicitly enforces the representation to be\nformed as an associative combination of action prototypes\nstored in a memory module.\nIn specific, these prototypes represent diverse relation-\nship patterns between all the human joints. The network\nsamples and assembles the relevant prototypes via the as-\nsociative response of input action features, producing the\nuniquely tailored representations.\nIn addition, a motion\ntopology enhancement module is incorporated to provide\nricher and more expressive features, facilitating ",
+          "similarity": 0.54624252264163
+        },
+        {
+          "chunk_index": 49,
+          "page_number": 8,
+          "content": "fectively focus on the joints most relevant to the target\nmotion. Furthermore, a closer inspection reveals that the\nproposed method can further accentuate the key motion de-\ntails, such as color patterns or intensity fluctuations within\nthe darkened rows. These fine-grained joint-level relation-\nships are crucial for distinguishing similar actions.\n5. Conclusion\nIn this paper, we propose ProtoGCN, a novel GCN-based\nmethod for skeleton-based action recognition. ProtoGCN\nhighlights its prototype reconstruction mechanism, aimed\nat revealing the fine-grained motion patterns essential for\ndistinguishing similar actions. Through the addition of en-\nhanced topology representations, ProtoGCN is empowered\nby the contrastive objective to learn and identify distinctive\naction units. Consequently, the reconstructed motion fea-\nture becomes sufficiently discernible, enabling the discrim-\nination of similar actions. The effectiveness of ProtoGCN\nis substantiated by achieving state-of-the-art perform",
+          "similarity": 0.54461289983386
+        },
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "content": " input action features, producing the\nuniquely tailored representations.\nIn addition, a motion\ntopology enhancement module is incorporated to provide\nricher and more expressive features, facilitating prototype\nretrieval.\nFurthermore, we propose a class-specific con-\ntrastive learning strategy to accentuate the inter-class dis-\ntinction, which compels the model to uncover distinctive\nprototypes to associate all action classes in the dataset. Such\na prototype-based associative reconstruction process helps\nto enhance the discriminative capability of the resultant mo-\ntion features and eliminate irrelevant distracting informa-\ntion. Both qualitative and quantitative analyses showcase\nthe superior efficacy of ProtoGCN in acquiring discrimina-\ntive representations and discerning similar actions.\nThe main contributions are summarized as follows:\n• We introduce ProtoGCN, a novel graph prototype learn-\ning method that amplifies subtle distinctions for accurate\ndifferentiation of similar actions",
+          "similarity": 0.544135924789875
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "liu2025_q2",
+      "paper_id": 4,
+      "question": "How does the Prototype Reconstruction Network generate enhanced representations?",
+      "ground_truth_pages": [
+        3,
+        4
+      ],
+      "status": "completed",
+      "answer": "The Prototype Reconstruction Network (PRN) creates enhanced representations by expressing the input graph features as a tailored combination of learned prototype vectors:\n\n- It decomposes the input representation into a set of learnable prototype vectors that highlight fine-grained joint-level details [Page 3].  \n- A memory module stores these learned action prototypes, which represent diverse relationship patterns among body joints [Page 3].  \n- A reconstruction module uses an attention-based addressing mechanism to compute response weights for the input features; this response is a uniquely tailored linear combination of prototypes from the memory [Page 3].  \n- The network samples and assembles the relevant prototypes according to the response, producing the enhanced (combined) representation Z for the input topology [Page 3; Page 4].  \n- The prototypes are learned/adapted automatically via backpropagation from the input graph embeddings (i.e., updated through gradients) rather than by fixed iterative updates [Page 3].",
+      "retrieved_pages": [
+        3,
+        3,
+        7,
+        2,
+        4
+      ],
+      "cited_pages": [
+        3,
+        4
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 17,
+          "page_number": 3,
+          "similarity": 0.680620237019308
+        },
+        {
+          "chunk_index": 19,
+          "page_number": 3,
+          "similarity": 0.667680109494986
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "similarity": 0.658407039100872
+        },
+        {
+          "chunk_index": 11,
+          "page_number": 2,
+          "similarity": 0.637052370620456
+        },
+        {
+          "chunk_index": 21,
+          "page_number": 4,
+          "similarity": 0.625052186270675
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 17,
+          "page_number": 3,
+          "content": "ge. The nuanced nature of\nthe corresponding joint movements often leads to these dis-\ntinctions becoming obscured within the total body motion.\nTo tackle this issue, the model’s attention needs to be\ndirected towards identifying the detailed joint-level motion\ncharacteristics. Therefore, we propose the Prototype Re-\nconstruction Network (PRN) to obtain the fine-grained en-\nhanced representations. This is achieved by decomposing\nthe representations into a combination of the learned proto-\ntype vectors to highlight key details.\nSpecifically, the network consists of two parts: a mem-\nory module and a reconstruction module.\nThe memory\nmodule stores the learned action prototypes that represent\ndiverse relationship patterns between human body joints.\nAccordingly, the reconstruction module computes the re-\nsponse weights of input representations through an address-\ning mechanism. Last, the network samples and assembles\nthe relevant prototypes via the response, producing uniquely\ntailored feat",
+          "similarity": 0.680620237019308
+        },
+        {
+          "chunk_index": 19,
+          "page_number": 3,
+          "content": "rns are adaptively updated throughout train-\ning. Instead of fixed iterative updates, we make the net-\nwork automatically exploit the clusters of these relation-\nships through backward gradient, and learn the represen-\ntative prototypes from the input graph embeddings. These\nlearned prototypes can then be composed into unique en-\nhanced representations under the response signals to be in-\ntroduced below.\nReconstruction Module. Our goal is to leverage the rele-\nvant prototype patterns to enhance the input feature, yield-\ning more significant and discriminative representations. We\nuse attention as the addressing mechanism. For the input\ngraph representation, the module produces a response sig-\nnal that represents a uniquely tailored linear combination of\nprototypes in the memory module.\n29250\n",
+          "similarity": 0.667680109494986
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "content": "PRN). This indicates that PRN helps\nto capture the discriminative semantics through discovering\ndiverse prototypes, thereby offering greater advantages for\ngraph convolution learning. By integrating all components,\nwe surpass the baseline model by 1.2%, demonstrating the\neffectiveness of the modules introduced in this work.\nEffectiveness of Prototype Reconstruction.\nTo under-\nscore the efficacy of the reconstruction mechanism, we con-\nduct the analysis between ProtoGCN and existing methods\nthat employ graph contrastive objective, including Skele-\ntonGCL [16] and FR-Head [45]. As shown in Tab. 4, while\nthese methods facilitate the differentiation, the improve-\nment of ProtoGCN is remarkable (1.0% / 0.8%). This indi-\ncates that the mechanism of expressing features as the com-\nbinations of prototypes could further boost the accuracy.\n29254\n",
+          "similarity": 0.658407039100872
+        },
+        {
+          "chunk_index": 11,
+          "page_number": 2,
+          "content": "rototyping ability, skillfully focusing\non principal body joints while filtering out extraneous ele-\nments [13, 31]. In this context, we argue that movements of\nhuman body joints likewise exhibit noteworthy similarities,\nresulting in a collective of prototypes. Integrating prototype\nlearning into the network facilitates the natural encapsula-\ntion of diverse dynamic characteristics, enhancing the capa-\nbility to discern similar actions.\nTherefore, in this study, we employ prototype learning\nfor diverse motion patterns through the utilization of the\nPrototype Reconstruction Network. Due to the consider-\nable difficulty in directly learning highly detailed features\nfor various actions, we represent them as combinations of\nlearnable prototypes to highlight key information. The pro-\nposed method discovers and assembles the most represen-\ntative prototypes, which can subsequently be employed to\ndiscern more fine-grained and distinct semantics.\n29249\n",
+          "similarity": 0.637052370620456
+        },
+        {
+          "chunk_index": 21,
+          "page_number": 4,
+          "content": "Global\nAverage\nPooling\nClassifier\n: {\n···\n}\nInput Skeleton Sequence\nIntra­sample\nCorrelation\nMotion Topology Enhancement\nPrototype Reconstruction Network\n­head Extraction\nUniversal Topology\nChannel Broadcast\nConv\nGraph Convolutional Backbone\nClassification Network\nAverage\nMomentum Update\nMemory\nBank\n···\nInput\nBatch\n···\nClass\nAggregation\nClass­Specific Contrastive Learning\n···\nBatch\nFeatures\nClass\nAggregations\nAnchor Feature\nInter­sample\nDistinction\nSample\nAssemble\nSoftmax\nTransform\nReshape\nEnhance\nOptimize\nFigure 2. The overall architecture of ProtoGCN. A Prototype Reconstruction Network is proposed to transform the representation of graph\ntopology X into a combination Z of learnable prototypes at the fine-grained joint level, thereby enhancing the distinctiveness of features. In\nspecific, the prototypes represent diverse relationship patterns between all the human joints. Additionally, at each layer of the network, the\nMotion Topology Enhancement module is integrated to capture rich a",
+          "similarity": 0.625052186270675
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "liu2025_q3",
+      "paper_id": 4,
+      "question": "What datasets are used to evaluate ProtoGCN?",
+      "ground_truth_pages": [
+        6
+      ],
+      "status": "completed",
+      "answer": "ProtoGCN is evaluated on four datasets: NTU-60, NTU-120, Kinetics, and FineGYM [Page 7].",
+      "retrieved_pages": [
+        7,
+        7,
+        6,
+        7,
+        8
+      ],
+      "cited_pages": [
+        7
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 42,
+          "page_number": 7,
+          "similarity": 0.665655499979498
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 7,
+          "similarity": 0.662051765734665
+        },
+        {
+          "chunk_index": 39,
+          "page_number": 6,
+          "similarity": 0.649649843480832
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "similarity": 0.626353380728572
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 8,
+          "similarity": 0.621990239535433
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 42,
+          "page_number": 7,
+          "content": "uct an experimental evaluation to\nassess the effectiveness of each component in the proposed\nmethod. The experiments are conducted under the X-Sub\nsetting of NTU-120 with the bone modality.\nEffectiveness of Each Module in ProtoGCN. We exam-\nine the contribution of each component of ProtoGCN as\nshown in Tab. 3. The baseline model is re-trained using the\nTable 3. Ablation study on the contribution of each component in\nProtoGCN under the NTU-120 X-Sub setting.\nBaseline\nMTE\nPRN\nCSCL\nAcc (%)\n✓\n–\n–\n–\n87.8\n✓\n✓\n–\n–\n88.1 (↑0.3)\n✓\n✓\n–\n✓\n88.3 (↑0.5)\n✓\n✓\n✓\n–\n88.5 (↑0.7)\n✓\n✓\n✓\n✓\n89.0 (↑1.2)\nTable 4. Comparison of classification accuracies (%) based on\n(left) existing graph contrastive methods and (right) different en-\nhanced topologies for the network.\nMethods\nAcc (%)\nBaseline\n87.8\nw/ SkeletonGCL [16]\n88.0\nw/ FR-Head [45]\n88.2\nOurs\n89.0\nMethods\nAcc (%)\nProtoGCN\n89.0\nw/o Aintra\n88.8\nw/o Ainter\n88.5\nw/o Aintra, Ainter\n88.4\nTable 5. Average performance (%) on different difficulty level\nclasses sorted ",
+          "similarity": 0.665655499979498
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 7,
+          "content": " four datasets, including NTU-60, NTU-120, Ki-\nnetics, and FineGYM. According to the results reported\nin Tab. 1 and Tab. 2, ProtoGCN consistently achieves the\nbest accuracy and outperforms other approaches by a sig-\nnificant margin in all scenarios. On the NTU-60 dataset,\nthe proposed method surpasses the performance of Block-\nGCN [46] by 0.7% on X-Sub and 0.8% on X-View. Re-\nmarkably, ProtoGCN excels in performance on the chal-\nlenging NTU-120 dataset, achieving accuracies of 90.9%\non X-Sub and 92.2% on X-Set.\nAs for Kinetics, Pro-\ntoGCN outperforms state-of-the-art method DS-GCN [37]\nby 1.3%. According to Tab. 2, ProtoGCN has achieved a\nsignificant improvement in fine-grained action recognition,\nfurther confirming the efficacy of our approach.\n4.4. Ablation Study\nIn this section, we conduct an experimental evaluation to\nassess the effectiveness of each component in the proposed\nmethod. The experiments are conducted under the X-Sub\nsetting of NTU-120 with the bone modality.\nEffectiven",
+          "similarity": 0.662051765734665
+        },
+        {
+          "chunk_index": 39,
+          "page_number": 6,
+          "content": "xperiments, ProtoGCN is trained for 150 epochs\nwith the batch size set to 64. We employ PYSKL [11] as\nthe baseline. The initial learning rate is set to 0.1, and we\ndecay it using a cosine learning rate scheduler. The SGD\noptimizer is employed with a Nesterov momentum of 0.9\nand a weight decay of 5×10−4. Following generic settings,\nmomentum α is set to 0.9, and temperature τ is set to 0.125.\nK is set to 8, and the dimension d for contrastive learning is\nset to 256. The learnable matrices are randomly initialized\nfor topology modeling. We follow the data pre-processing\nprocedures outlined in PYSKL [11]. All experiments are\nconducted on a single RTX 3090 GPU with PyTorch.\n29253\n",
+          "similarity": 0.649649843480832
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "content": "PRN). This indicates that PRN helps\nto capture the discriminative semantics through discovering\ndiverse prototypes, thereby offering greater advantages for\ngraph convolution learning. By integrating all components,\nwe surpass the baseline model by 1.2%, demonstrating the\neffectiveness of the modules introduced in this work.\nEffectiveness of Prototype Reconstruction.\nTo under-\nscore the efficacy of the reconstruction mechanism, we con-\nduct the analysis between ProtoGCN and existing methods\nthat employ graph contrastive objective, including Skele-\ntonGCL [16] and FR-Head [45]. As shown in Tab. 4, while\nthese methods facilitate the differentiation, the improve-\nment of ProtoGCN is remarkable (1.0% / 0.8%). This indi-\ncates that the mechanism of expressing features as the com-\nbinations of prototypes could further boost the accuracy.\n29254\n",
+          "similarity": 0.626353380728572
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 8,
+          "content": ".3,\ncorresponding to the peak accuracy. In addition, we explore\nthe impact of varying npro. Intuitively, the memory capac-\nity is closely related to representative patterns among all the\njoints. Through empirical investigation, we determine the\noptimal balance and set npro to 100 for the performance.\nPerformance on Similar Classes. We conduct the analysis\nof the performance in discerning actions with differing de-\ngrees of similarity. To achieve this, we sorted 120 classes\nof NTU-120 based on accuracies, ranging from low to high\naccording to the results obtained with the baseline. Subse-\nquently, we categorized them into four difficulty levels and\ncomputed the average accuracy for each level. As shown in\nTab. 5, ProtoGCN yields a more significant accuracy gain,\nespecially in classes with higher difficulties. In Fig. 5, we\nfurther present the action classes that exhibit over 1% abso-\nlute accuracy difference with the baseline on the NTU-120\ndataset. It is evident that ProtoGCN offers mo",
+          "similarity": 0.621990239535433
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "liu2025_q4",
+      "paper_id": 4,
+      "question": "How does ProtoGCN perform compared with state-of-the-art methods?",
+      "ground_truth_pages": [
+        6,
+        7
+      ],
+      "status": "completed",
+      "answer": "ProtoGCN achieves state-of-the-art performance and consistently outperforms prior methods across multiple benchmarks. Key results reported in the paper:\n\n- Overall claim: ProtoGCN consistently attains the best accuracy on four benchmarks (NTU RGB+D, NTU RGB+D 120, Kinetics-Skeleton, FineGYM) and achieves state-of-the-art performance [Page 2]; it is substantiated across the four datasets tested [Page 8].  \n- NTU-60: surpasses Block-GCN by 0.7% on X-Sub and 0.8% on X-View [Page 7].  \n- NTU-120: attains 90.9% (X-Sub) and 92.2% (X-Set) accuracy [Page 7].  \n- Kinetics: outperforms DS-GCN by 1.3% [Page 7].  \n- Against graph-contrastive baselines: improves over SkeletonGCL by 1.0% and over FR-Head by 0.8% [Page 7].  \n- Ablation: integrating all proposed components surpasses the baseline by 1.2% (from 87.8% to 89.0% on NTU-120 X-Sub, bone modality) [Page 7].\n\nThese results together indicate ProtoGCN outperforms prior state-of-the-art methods in the reported experiments [Pages 2, 7, 8].",
+      "retrieved_pages": [
+        7,
+        7,
+        2,
+        7,
+        8
+      ],
+      "cited_pages": [
+        2,
+        8,
+        7
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 41,
+          "page_number": 7,
+          "similarity": 0.681002772193979
+        },
+        {
+          "chunk_index": 42,
+          "page_number": 7,
+          "similarity": 0.662453524047454
+        },
+        {
+          "chunk_index": 8,
+          "page_number": 2,
+          "similarity": 0.650723539290083
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "similarity": 0.64905188063024
+        },
+        {
+          "chunk_index": 50,
+          "page_number": 8,
+          "similarity": 0.642696648777148
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 41,
+          "page_number": 7,
+          "content": " four datasets, including NTU-60, NTU-120, Ki-\nnetics, and FineGYM. According to the results reported\nin Tab. 1 and Tab. 2, ProtoGCN consistently achieves the\nbest accuracy and outperforms other approaches by a sig-\nnificant margin in all scenarios. On the NTU-60 dataset,\nthe proposed method surpasses the performance of Block-\nGCN [46] by 0.7% on X-Sub and 0.8% on X-View. Re-\nmarkably, ProtoGCN excels in performance on the chal-\nlenging NTU-120 dataset, achieving accuracies of 90.9%\non X-Sub and 92.2% on X-Set.\nAs for Kinetics, Pro-\ntoGCN outperforms state-of-the-art method DS-GCN [37]\nby 1.3%. According to Tab. 2, ProtoGCN has achieved a\nsignificant improvement in fine-grained action recognition,\nfurther confirming the efficacy of our approach.\n4.4. Ablation Study\nIn this section, we conduct an experimental evaluation to\nassess the effectiveness of each component in the proposed\nmethod. The experiments are conducted under the X-Sub\nsetting of NTU-120 with the bone modality.\nEffectiven",
+          "similarity": 0.681002772193979
+        },
+        {
+          "chunk_index": 42,
+          "page_number": 7,
+          "content": "uct an experimental evaluation to\nassess the effectiveness of each component in the proposed\nmethod. The experiments are conducted under the X-Sub\nsetting of NTU-120 with the bone modality.\nEffectiveness of Each Module in ProtoGCN. We exam-\nine the contribution of each component of ProtoGCN as\nshown in Tab. 3. The baseline model is re-trained using the\nTable 3. Ablation study on the contribution of each component in\nProtoGCN under the NTU-120 X-Sub setting.\nBaseline\nMTE\nPRN\nCSCL\nAcc (%)\n✓\n–\n–\n–\n87.8\n✓\n✓\n–\n–\n88.1 (↑0.3)\n✓\n✓\n–\n✓\n88.3 (↑0.5)\n✓\n✓\n✓\n–\n88.5 (↑0.7)\n✓\n✓\n✓\n✓\n89.0 (↑1.2)\nTable 4. Comparison of classification accuracies (%) based on\n(left) existing graph contrastive methods and (right) different en-\nhanced topologies for the network.\nMethods\nAcc (%)\nBaseline\n87.8\nw/ SkeletonGCL [16]\n88.0\nw/ FR-Head [45]\n88.2\nOurs\n89.0\nMethods\nAcc (%)\nProtoGCN\n89.0\nw/o Aintra\n88.8\nw/o Ainter\n88.5\nw/o Aintra, Ainter\n88.4\nTable 5. Average performance (%) on different difficulty level\nclasses sorted ",
+          "similarity": 0.662453524047454
+        },
+        {
+          "chunk_index": 8,
+          "page_number": 2,
+          "content": "\nThe main contributions are summarized as follows:\n• We introduce ProtoGCN, a novel graph prototype learn-\ning method that amplifies subtle distinctions for accurate\ndifferentiation of similar actions.\n• A Prototype Reconstruction Network is proposed to adap-\ntively assemble prototypes, yielding distinctive represen-\ntations under a contrastive objective.\n• Extensive experiments on four large-scale benchmarks\n(NTU RGB+D, NTU RGB+D 120, Kinetics-Skeleton,\nand FineGYM) demonstrate that ProtoGCN consistently\nachieves state-of-the-art performance.\n2. Related Work\n2.1. Skeleton-based Action Recognition with GCNs\nConsidering the intrinsic graph-like structure of human\nskeletons, the majority of GCN-based approaches [6, 7,\n10, 25, 30, 40, 46] explicitly model the relationships us-\ning spatial-temporal graphs. ST-GCN [40] is the pioneer-\ning work integrating graph convolutions for comprehensive\nspatial-temporal modeling. Most subsequent studies adopt\nthe main framework of ST-GCN and place grea",
+          "similarity": 0.650723539290083
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "content": "PRN). This indicates that PRN helps\nto capture the discriminative semantics through discovering\ndiverse prototypes, thereby offering greater advantages for\ngraph convolution learning. By integrating all components,\nwe surpass the baseline model by 1.2%, demonstrating the\neffectiveness of the modules introduced in this work.\nEffectiveness of Prototype Reconstruction.\nTo under-\nscore the efficacy of the reconstruction mechanism, we con-\nduct the analysis between ProtoGCN and existing methods\nthat employ graph contrastive objective, including Skele-\ntonGCL [16] and FR-Head [45]. As shown in Tab. 4, while\nthese methods facilitate the differentiation, the improve-\nment of ProtoGCN is remarkable (1.0% / 0.8%). This indi-\ncates that the mechanism of expressing features as the com-\nbinations of prototypes could further boost the accuracy.\n29254\n",
+          "similarity": 0.64905188063024
+        },
+        {
+          "chunk_index": 50,
+          "page_number": 8,
+          "content": " reconstructed motion fea-\nture becomes sufficiently discernible, enabling the discrim-\nination of similar actions. The effectiveness of ProtoGCN\nis substantiated by achieving state-of-the-art performance\nacross four widely utilized benchmark datasets.\n29255\n",
+          "similarity": 0.642696648777148
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "liu2025_q5",
+      "paper_id": 4,
+      "question": "Which component contributes the most performance improvement in the ablation study?",
+      "ground_truth_pages": [
+        7
+      ],
+      "status": "completed",
+      "answer": "The Prototype Reconstruction Network (PRN) — it yields the largest single improvement: +0.7% (from 88.3% to 89.0%) in the ablation study [Page 7].",
+      "retrieved_pages": [
+        7,
+        7,
+        7,
+        7,
+        8
+      ],
+      "cited_pages": [
+        7
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 43,
+          "page_number": 7,
+          "similarity": 0.478344132936328
+        },
+        {
+          "chunk_index": 42,
+          "page_number": 7,
+          "similarity": 0.477060258326199
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 7,
+          "similarity": 0.469328127337252
+        },
+        {
+          "chunk_index": 40,
+          "page_number": 7,
+          "similarity": 0.414751112309592
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 8,
+          "similarity": 0.390271832517632
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 43,
+          "page_number": 7,
+          "content": "88.0\nw/ FR-Head [45]\n88.2\nOurs\n89.0\nMethods\nAcc (%)\nProtoGCN\n89.0\nw/o Aintra\n88.8\nw/o Ainter\n88.5\nw/o Aintra, Ainter\n88.4\nTable 5. Average performance (%) on different difficulty level\nclasses sorted by accuracy under the NTU-120 X-Sub setting.\nDifficulty Level\nBaseline\nProtoGCN\n∆\nclass 1-10\n64.1\n67.1\n+3.0\nclass 11-30\n78.6\n81.1\n+2.5\nclass 31-60\n88.6\n89.7\n+1.1\nclass 61-120\n96.0\n96.4\n+0.4\nlatest officially released code and achieved a performance\nof 87.8%.\nSubsequently, we observe a performance im-\nprovement of 0.3% with the Motion Topology Enhancement\n(MTE) module. Building upon the foundation provided by\nMTE, LCSC could improve performance by 0.2%. Inter-\nestingly, the performance significantly improves by 0.7%\n(from 88.3% to 89.0%) with the addition of Prototype Re-\nconstruction Network (PRN). This indicates that PRN helps\nto capture the discriminative semantics through discovering\ndiverse prototypes, thereby offering greater advantages for\ngraph convolution learning. By integrating a",
+          "similarity": 0.478344132936328
+        },
+        {
+          "chunk_index": 42,
+          "page_number": 7,
+          "content": "uct an experimental evaluation to\nassess the effectiveness of each component in the proposed\nmethod. The experiments are conducted under the X-Sub\nsetting of NTU-120 with the bone modality.\nEffectiveness of Each Module in ProtoGCN. We exam-\nine the contribution of each component of ProtoGCN as\nshown in Tab. 3. The baseline model is re-trained using the\nTable 3. Ablation study on the contribution of each component in\nProtoGCN under the NTU-120 X-Sub setting.\nBaseline\nMTE\nPRN\nCSCL\nAcc (%)\n✓\n–\n–\n–\n87.8\n✓\n✓\n–\n–\n88.1 (↑0.3)\n✓\n✓\n–\n✓\n88.3 (↑0.5)\n✓\n✓\n✓\n–\n88.5 (↑0.7)\n✓\n✓\n✓\n✓\n89.0 (↑1.2)\nTable 4. Comparison of classification accuracies (%) based on\n(left) existing graph contrastive methods and (right) different en-\nhanced topologies for the network.\nMethods\nAcc (%)\nBaseline\n87.8\nw/ SkeletonGCL [16]\n88.0\nw/ FR-Head [45]\n88.2\nOurs\n89.0\nMethods\nAcc (%)\nProtoGCN\n89.0\nw/o Aintra\n88.8\nw/o Ainter\n88.5\nw/o Aintra, Ainter\n88.4\nTable 5. Average performance (%) on different difficulty level\nclasses sorted ",
+          "similarity": 0.477060258326199
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 7,
+          "content": " four datasets, including NTU-60, NTU-120, Ki-\nnetics, and FineGYM. According to the results reported\nin Tab. 1 and Tab. 2, ProtoGCN consistently achieves the\nbest accuracy and outperforms other approaches by a sig-\nnificant margin in all scenarios. On the NTU-60 dataset,\nthe proposed method surpasses the performance of Block-\nGCN [46] by 0.7% on X-Sub and 0.8% on X-View. Re-\nmarkably, ProtoGCN excels in performance on the chal-\nlenging NTU-120 dataset, achieving accuracies of 90.9%\non X-Sub and 92.2% on X-Set.\nAs for Kinetics, Pro-\ntoGCN outperforms state-of-the-art method DS-GCN [37]\nby 1.3%. According to Tab. 2, ProtoGCN has achieved a\nsignificant improvement in fine-grained action recognition,\nfurther confirming the efficacy of our approach.\n4.4. Ablation Study\nIn this section, we conduct an experimental evaluation to\nassess the effectiveness of each component in the proposed\nmethod. The experiments are conducted under the X-Sub\nsetting of NTU-120 with the bone modality.\nEffectiven",
+          "similarity": 0.469328127337252
+        },
+        {
+          "chunk_index": 40,
+          "page_number": 7,
+          "content": "Table 2. Performance comparisons against state-of-the-art meth-\nods on FineGYM in terms of classification accuracy (%).\nMethods\nModality\nFineGYM\nI3D [2]\nRGB\n64.4\nTSN [35]\nRGB+Flow\n79.8\nTSM [23]\nRGB+Flow\n81.2\nLT-S3D [38]\nRGB\n88.9\nSkeletonMAE [39]\nSkeleton\n91.8\nPYSKL [11]\nSkeleton\n94.1\nPoseConv3D [12]\nSkeleton+Limb\n94.3\nProtoGCN (Ours)\nSkeleton\n95.9\nFigure 3. Ablation study on the influences of weight λ and the\nmemory capacity npro under the NTU-120 X-Sub setting.\n4.3. Comparison with State-of-the-Art Methods\nTo improve recognition accuracy, recent state-of-the-art\nmethods [6, 9, 19, 30] utilize the multi-stream fusion frame-\nwork. For a fair comparison, we adopt the widely adopted\nsix-stream ensemble strategy proposed in InfoGCN [9].\nWe compare ProtoGCN with extensive benchmark meth-\nods on four datasets, including NTU-60, NTU-120, Ki-\nnetics, and FineGYM. According to the results reported\nin Tab. 1 and Tab. 2, ProtoGCN consistently achieves the\nbest accuracy and outperforms other appro",
+          "similarity": 0.414751112309592
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 8,
+          "content": ".3,\ncorresponding to the peak accuracy. In addition, we explore\nthe impact of varying npro. Intuitively, the memory capac-\nity is closely related to representative patterns among all the\njoints. Through empirical investigation, we determine the\noptimal balance and set npro to 100 for the performance.\nPerformance on Similar Classes. We conduct the analysis\nof the performance in discerning actions with differing de-\ngrees of similarity. To achieve this, we sorted 120 classes\nof NTU-120 based on accuracies, ranging from low to high\naccording to the results obtained with the baseline. Subse-\nquently, we categorized them into four difficulty levels and\ncomputed the average accuracy for each level. As shown in\nTab. 5, ProtoGCN yields a more significant accuracy gain,\nespecially in classes with higher difficulties. In Fig. 5, we\nfurther present the action classes that exhibit over 1% abso-\nlute accuracy difference with the baseline on the NTU-120\ndataset. It is evident that ProtoGCN offers mo",
+          "similarity": 0.390271832517632
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yan2018_q1",
+      "paper_id": 6,
+      "question": "What problem does ST-GCN aim to solve compared with previous skeleton-based action recognition methods?",
+      "ground_truth_pages": [
+        1,
+        2
+      ],
+      "status": "completed",
+      "answer": "ST-GCN addresses the reliance on manual, hand-crafted part assignments and traversal rules in prior skeleton-based methods by bringing convolutional, hierarchical, and locality properties to skeleton sequences via a graph-based formulation. Concretely, ST-GCN models dynamic skeletons with spatial–temporal graph convolutions so that spatial and temporal information are integrated automatically (eliminating hand-crafted part/traversal design), yielding greater expressive power and easier generalization. It also captures motion information complementary to RGB models and improves recognition performance [Page 2][Page 8]. Additionally, the model can handle variable-length input sequences via global pooling [Page 6].",
+      "retrieved_pages": [
+        2,
+        6,
+        8,
+        2,
+        8
+      ],
+      "cited_pages": [
+        2,
+        8,
+        6
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 13,
+          "page_number": 2,
+          "similarity": 0.775775068683714
+        },
+        {
+          "chunk_index": 37,
+          "page_number": 6,
+          "similarity": 0.77560666594284
+        },
+        {
+          "chunk_index": 55,
+          "page_number": 8,
+          "similarity": 0.769218573873631
+        },
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "similarity": 0.755211559129867
+        },
+        {
+          "chunk_index": 56,
+          "page_number": 8,
+          "similarity": 0.747572956904024
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 13,
+          "page_number": 2,
+          "content": "ect recognition, the hierarchical repre-\nsentation and locality are usually achieved by the intrin-\nsic properties of convolutional neural networks (Krizhevsky,\nSutskever, and Hinton 2012), rather than manually assign-\ning object parts. It motivates us to introduce the appealing\nproperty of CNNs to skeleton based action recognition. The\nresult of this attempt is the ST-GCN model.\n3.1\nPipeline Overview\nSkeleton based data can be obtained from motion-capture\ndevices or pose estimation algorithms from videos. Usually\nthe data is a sequence of frames, each frame will have a set\nof joint coordinates. Given the sequences of body joints in\n",
+          "similarity": 0.775775068683714
+        },
+        {
+          "chunk_index": 37,
+          "page_number": 6,
+          "content": "nces in\ntraining and use all frames in the test. Global pooling at the\ntop of the network enables the network to handle the input\nsequences with indeﬁnite length.\n4\nExperiments\nIn this section we evaluate the performance of ST-GCN\nin skeleton based action recognition experiments. We ex-\nperiment on two large-scale action recognition datasets\nwith vastly different properties: Kinetics human ac-\ntion dataset (Kinetics) (Kay et al. 2017) is by far the\nlargest unconstrained action recognition dataset, and NTU-\nRGB+D (Shahroudy et al. 2016) the largest in-house cap-\ntured action recognition dataset. In particular, we ﬁrst per-\nform detailed ablation study on the Kinetics dataset to ex-\namine the contributions of the proposed model components\nto the recognition performance. Then we compare the recog-\nnition results of ST-GCN with other state-of-the-art meth-\nods and other input modalities. To verify whether the ex-\nperience we gained on in the unconstrained setting is uni-\nversal, we experim",
+          "similarity": 0.77560666594284
+        },
+        {
+          "chunk_index": 55,
+          "page_number": 8,
+          "content": ". 2016) models from scratches on\nKinetics with RGB and optical ﬂow models. Adding ST-\nGCN to the RGB model leads to 0.9% increase, even bet-\nter than optical ﬂows (0.8%). Combining RGB, optical ﬂow,\nand ST-GCN further raises the performance to 71.7%. These\nresults clearly show that the skeletons can provide comple-\nmentary information when leveraged effectively (e.g. using\nST-GCN).\n5\nConclusion\nIn this paper, we present a novel model for skeleton based\naction recognition, the spatial temporal graph convolutional\nnetworks (ST-GCN). The model constructs a set of spatial\ntemporal graph convolutions on the skeleton sequences. On\ntwo challenging large-scale datasets, the proposed ST-GCN\noutperforms the previous state-of-the-art skeleton based\nmodel. In addition, ST-GCN can capture motion information\nin dynamic skeleton sequences which is complementary to\nRGB modality. The combination of skeleton based model\nand frame based model further improves the performance\nin action recognition. The ﬂe",
+          "similarity": 0.769218573873631
+        },
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "content": "ted thereon, which allow information to be inte-\ngrated along both the spatial and the temporal dimension.\nThe hierarchical nature of ST-GCN eliminates the need of\nhand-crafted part assignment or traversal rules. This not only\nleads to greater expressive power and thus higher perfor-\nmance (as shown in our experiments), but also makes it easy\nto generalize to different contexts. Upon the generic GCN\nformulation, we also study new strategies to design graph\nconvolution kernels, with inspirations from image models.\nThe major contributions of this work lie in three aspects:\n1) We propose ST-GCN, a generic graph-based formulation\nfor modeling dynamic skeletons, which is the ﬁrst that ap-\nplies graph-based neural networks for this task. 2) We pro-\npose several principles in designing convolution kernels in\nST-GCN to meet the speciﬁc demands in skeleton model-\ning. 3) On two large scale datasets for skeleton-based action\nrecognition, the proposed model achieves superior perfor-\nmance as comp",
+          "similarity": 0.755211559129867
+        },
+        {
+          "chunk_index": 56,
+          "page_number": 8,
+          "content": "ation\nin dynamic skeleton sequences which is complementary to\nRGB modality. The combination of skeleton based model\nand frame based model further improves the performance\nin action recognition. The ﬂexibility of ST-GCN model also\nopens up many possible directions for future works. For ex-\nample, how to incorporate contextual information, such as\nscenes, objects, and interactions into ST-GCN becomes a\nnatural question.\n",
+          "similarity": 0.747572956904024
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yan2018_q2",
+      "paper_id": 6,
+      "question": "How is the spatial-temporal graph constructed in ST-GCN?",
+      "ground_truth_pages": [
+        2,
+        3
+      ],
+      "status": "completed",
+      "answer": "- The graph is an undirected spatial-temporal graph G = (V, E) built from a skeleton sequence of N joints over T frames. The node set is V = {v_ti | t = 1..T, i = 1..N}; each node's feature F(v_ti) is the joint's coordinate vector (and estimation confidence) at frame t [Page 3].\n\n- Edges E consist of two subsets:\n  - Spatial (intra-frame) edges ES: within each frame, joints are connected according to the natural human-body connectivity H, i.e. ES = {v_ti v_tj | (i, j) ∈ H} [Page 3].\n  - Temporal (inter-frame) edges EF: each joint is connected to itself in the consecutive frame, i.e. EF = {v_ti v_(t+1)i}, so a joint's trajectory over time is represented by EF [Page 3].\n\n- Together these spatial and temporal edges form the spatial-temporal graph used as ST-GCN input; the connectivity is thus naturally defined without manual part assignment [Page 3].",
+      "retrieved_pages": [
+        2,
+        3,
+        3,
+        2,
+        3
+      ],
+      "cited_pages": [
+        3
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "similarity": 0.670436154688259
+        },
+        {
+          "chunk_index": 16,
+          "page_number": 3,
+          "similarity": 0.655774782162082
+        },
+        {
+          "chunk_index": 15,
+          "page_number": 3,
+          "similarity": 0.655695493729814
+        },
+        {
+          "chunk_index": 6,
+          "page_number": 2,
+          "similarity": 0.648176986719211
+        },
+        {
+          "chunk_index": 18,
+          "page_number": 3,
+          "similarity": 0.643601032605223
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "content": "ted thereon, which allow information to be inte-\ngrated along both the spatial and the temporal dimension.\nThe hierarchical nature of ST-GCN eliminates the need of\nhand-crafted part assignment or traversal rules. This not only\nleads to greater expressive power and thus higher perfor-\nmance (as shown in our experiments), but also makes it easy\nto generalize to different contexts. Upon the generic GCN\nformulation, we also study new strategies to design graph\nconvolution kernels, with inspirations from image models.\nThe major contributions of this work lie in three aspects:\n1) We propose ST-GCN, a generic graph-based formulation\nfor modeling dynamic skeletons, which is the ﬁrst that ap-\nplies graph-based neural networks for this task. 2) We pro-\npose several principles in designing convolution kernels in\nST-GCN to meet the speciﬁc demands in skeleton model-\ning. 3) On two large scale datasets for skeleton-based action\nrecognition, the proposed model achieves superior perfor-\nmance as comp",
+          "similarity": 0.670436154688259
+        },
+        {
+          "chunk_index": 16,
+          "page_number": 3,
+          "content": "archical rep-\nresentation of the skeleton sequences. Particularly, we con-\nstruct an undirected spatial temporal graph G = (V, E) on\na skeleton sequence with N joints and T frames featuring\nboth intra-body and inter-frame connection.\nIn this graph, the node set V = {vti|t = 1, . . . , T, i =\n1, . . . , N} includes the all the joints in a skeleton sequence.\nAs ST-GCN’s input, the feature vector on a node F(vti) con-\nsists of coordinate vectors, as well as estimation conﬁdence,\nof the i-th joint on frame t. We construct the spatial tempo-\nral graph on the skeleton sequences in two steps. First, the\njoints within one frame are connected with edges accord-\ning to the connectivity of human body structure, which is\nillustrated in Fig. 1. Then each joint will be connected to\nthe same joint in the consecutive frame. The connections\nin this setup are thus naturally deﬁned without the manual\npart assignment. This also enables the network architecture\nto work on datasets with different number of ",
+          "similarity": 0.655774782162082
+        },
+        {
+          "chunk_index": 15,
+          "page_number": 3,
+          "content": "ty vectors residing on the 2D image\ngrid. Multiple layers of spatial-temporal graph convolution\noperations will be applied on the input data and generating\nhigher-level feature maps on the graph. It will then be classi-\nﬁed by the standard SoftMax classiﬁer to the corresponding\naction category. The whole model is trained in an end-to-\nend manner with backpropagation. We will now go over the\ncomponents in the ST-GCN model.\n3.2\nSkeleton Graph Construction\nA skeleton sequence is usually represented by 2D or 3D co-\nordinates of each human joint in each frame. Previous work\nusing convolution for skeleton action recognition (Kim and\nReiter 2017) concatenates coordinate vectors of all joints\nto form a single feature vector per frame. In our work, we\nutilize the spatial temporal graph to form hierarchical rep-\nresentation of the skeleton sequences. Particularly, we con-\nstruct an undirected spatial temporal graph G = (V, E) on\na skeleton sequence with N joints and T frames featuring\nboth intra",
+          "similarity": 0.655695493729814
+        },
+        {
+          "chunk_index": 6,
+          "page_number": 2,
+          "content": "graph as input. The application of GCNs to model dynamic\ngraphs over large-scale datasets, e.g. human skeleton se-\nquences, is yet to be explored.\nIn this paper, we propose to design a generic represen-\ntation of skeleton sequences for action recognition by ex-\ntending graph neural networks to a spatial-temporal graph\nmodel, called Spatial-Temporal Graph Convolutional Net-\nworks (ST-GCN). As illustrated in Figure 1 this model is\nformulated on top of a sequence of skeleton graphs, where\neach node corresponds to a joint of the human body. There\nare two types of edges, namely the spatial edges that con-\nform to the natural connectivity of joints and the temporal\nedges that connect the same joints across consecutive time\nsteps. Multiple layers of spatial temporal graph convolution\nare constructed thereon, which allow information to be inte-\ngrated along both the spatial and the temporal dimension.\nThe hierarchical nature of ST-GCN eliminates the need of\nhand-crafted part assignment or trav",
+          "similarity": 0.648176986719211
+        },
+        {
+          "chunk_index": 18,
+          "page_number": 3,
+          "content": "d as ES = {vtivtj|(i, j) ∈H}, where H is\nthe set of naturally connected human body joints. The sec-\nond subset contains the inter-frame edges, which connect the\nsame joints in consecutive frames as EF = {vtiv(t+1)i}.\nTherefore all edges in EF for one particular joint i will rep-\nresent its trajectory over time.\n3.3\nSpatial Graph Convolutional Neural Network\nBefore we dive into the full-ﬂedged ST-GCN, we ﬁrst look\nat the graph CNN model within one single frame. In this\ncase, on a single frame at time τ, there will be N joint nodes\nVt, along with the skeleton edges ES(τ) = {vtivtj|t =\nτ, (i, j) ∈H}. Recall the deﬁnition of convolution opera-\ntion on the 2D natural images or feature maps, which can\nbe both treated as 2D grids. The output feature map of a\nconvolution operation is again a 2D grid. With stride 1 and\nappropriate padding, the output feature maps can have the\nsame size as the input feature maps. We will assume this\ncondition in the following discussion. Given a convolution\noper",
+          "similarity": 0.643601032605223
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yan2018_q3",
+      "paper_id": 6,
+      "question": "What partitioning strategies are proposed for ST-GCN?",
+      "ground_truth_pages": [
+        4,
+        5
+      ],
+      "status": "completed",
+      "answer": "The paper proposes three partitioning strategies for ST-GCN: uni-labeling; distance partitioning; and spatial configuration partitioning [Page 7]. It also evaluates an intermediate variant called \"distance partitioning*\" (weights bound by a scaling factor w0 = −w1) [Page 7].",
+      "retrieved_pages": [
+        7,
+        7,
+        7,
+        7,
+        5
+      ],
+      "cited_pages": [
+        7
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 46,
+          "page_number": 7,
+          "similarity": 0.704173649958445
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 7,
+          "similarity": 0.610637189522815
+        },
+        {
+          "chunk_index": 45,
+          "page_number": 7,
+          "similarity": 0.606520583741964
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "similarity": 0.602642094911075
+        },
+        {
+          "chunk_index": 31,
+          "page_number": 5,
+          "similarity": 0.594377281170162
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 46,
+          "page_number": 7,
+          "content": " of\nthe two subsets in distance partitioning to be different only\nby a scaling factor −1, or w0 = −w1. This setting still\nachieves better performance than uni-labeling, which again\ndemonstrate the importance of the partitioning with multiple\nsubsets. Among multi-subset partitioning strategies, the spa-\ntial conﬁguration partitioning achieves better performance.\nThis corroborates our motivation in designing this strategy,\nwhich takes into consideration the concentric and eccentric\nmotion patterns. Based on these observations, we use the\nspatial conﬁguration partitioning strategy in the following\nexperiments.\nLearnable edge importance weighting.\nAnother compo-\nnent in ST-GCN is the learnable edge importance weight-\ning. We experiment with adding this component on the ST-\nGCN model with spatial conﬁguration partitioning. This is\nreferred to as “ST-GCN+Imp.” in Table 1. Given the high\nperforming vanilla ST-GCN, this component is still able to\nraise the recognition performance by more than ",
+          "similarity": 0.704173649958445
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 7,
+          "content": "al conﬁguration partitioning. This is\nreferred to as “ST-GCN+Imp.” in Table 1. Given the high\nperforming vanilla ST-GCN, this component is still able to\nraise the recognition performance by more than 1 percent.\nRecall that this component is inspired by the fact that joints\nin different parts have different importances. It is veriﬁed\nthat the ST-GCN model can now learn to express the joint\nimportance and improve the recognition performance. Based\non this observation, we always use this component with ST-\nGCN in comparison with other state-of-the-art models.\n4.3\nComparison with State of the Arts\nTo verify the performance of ST-GCN in both uncon-\nstrained and constraint environment, we perform experi-\nments on Kinetics dataset (Kay et al. 2017) and NTU-\nRGB+D dataset(Shahroudy et al. 2016), respectively.\nKinetics.\nOn Kinetics, we compare with three character-\nistic approaches for skeleton based action recognition. The\nﬁrst is the feature encoding approach on hand-crafted fea-\ntures (Ferna",
+          "similarity": 0.610637189522815
+        },
+        {
+          "chunk_index": 45,
+          "page_number": 7,
+          "content": "r of the spatial temporal graph convo-\nlution in skeleton based action recognition.\nPartition strategies\nIn this work we present three parti-\ntioning strategies: 1) uni-labeling; 2) distance partitioning;\nand 3) spatial conﬁguration partitioning. We evaluate the\nperformance of ST-GCN with these partitioning strategies.\nThe results are summarized in Table 1. We observe that par-\ntitioning with multiple subsets is generally much better than\nuni-labeling. This is in accordance with the obvious prob-\nlem of uni-labeling that it is equivalent to simply averag-\ning features before the convolution operation. Given this ob-\nservation, we experiment with an intermediate between the\ndistance partitioning and uni-labeling, referred to as “dis-\ntance partitioning*”. In this setting we bind the weights of\nthe two subsets in distance partitioning to be different only\nby a scaling factor −1, or w0 = −w1. This setting still\nachieves better performance than uni-labeling, which again\ndemonstrate the imp",
+          "similarity": 0.606520583741964
+        },
+        {
+          "chunk_index": 44,
+          "page_number": 7,
+          "content": "RGB+D (Kim\nand Reiter 2017). Seen from Table 1, models with spa-\ntial temporal graph convolution, with reasonable partition-\ning strategies, consistently outperform the baseline model on\nKinetics. Actually, this temporal convolution is equivalent to\nspatial temporal graph convolution with unshared weights\non a fully connected joint graph. So the major difference be-\ntween the baseline model and ST-GCN models are the sparse\nnatural connections and shared weights in convolution oper-\nation. Additionally, we evaluate an intermediate model be-\ntween the baseline model and ST-GCN, referred as “local\nconvolution”. In this model we use the sparse joint graph as\nST-GCN, but use convolution ﬁlters with unshared weights.\nWe believe the better performance of ST-GCN based models\ncould justify the power of the spatial temporal graph convo-\nlution in skeleton based action recognition.\nPartition strategies\nIn this work we present three parti-\ntioning strategies: 1) uni-labeling; 2) distance partition",
+          "similarity": 0.602642094911075
+        },
+        {
+          "chunk_index": 31,
+          "page_number": 5,
+          "content": "recognition ex-\nperiments. It is expected that a more advanced partitioning\nstrategy will lead to better modeling capacity and recogni-\ntion performance.\n3.5\nLearnable edge importance weighting.\nAlthough joints move in groups when people are performing\nactions, one joint could appear in multiple body parts. These\nappearances, however, should have different importance in\nmodeling the dynamics of these parts. In this sense, we add\na learnable mask M on every layer of spatial temporal graph\nconvolution. The mask will scale the contribution of a node’s\nfeature to its neighboring nodes based on the learned impor-\ntance weight of each spatial graph edge in ES. Empirically\nwe ﬁnd adding this mask can further improve the recogni-\ntion performance of ST-GCN. It is also possible to have a\ndata dependent attention map for this sake. We leave this to\nfuture works.\n3.6\nImplementing ST-GCN\nThe implementation of graph-based convolution is not as\nstraightforward as 2D or 3D convolution. Here we provid",
+          "similarity": 0.594377281170162
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yan2018_q4",
+      "paper_id": 6,
+      "question": "What is the purpose of learnable edge importance weighting in ST-GCN?",
+      "ground_truth_pages": [
+        5,
+        7
+      ],
+      "status": "completed",
+      "answer": "The learnable edge importance weighting lets the model learn how important each spatial graph edge is and use that to scale a node’s feature contribution to its neighbors—addressing the fact that a joint can belong to multiple body parts but should contribute differently in different contexts [Page 5]. It is implemented as a per-layer learnable mask M that is element-wise multiplied with the adjacency matrices ((A+I)⊗M and Aj⊗M), with M initialized to all ones [Page 6]. Empirically this mask improves recognition performance (e.g., >1% gain) and allows ST-GCN to express joint/edge importance automatically [Page 5; Page 7].",
+      "retrieved_pages": [
+        6,
+        5,
+        7,
+        2,
+        7
+      ],
+      "cited_pages": [
+        5,
+        6,
+        7
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 34,
+          "page_number": 6,
+          "similarity": 0.708140721627803
+        },
+        {
+          "chunk_index": 31,
+          "page_number": 5,
+          "similarity": 0.660914004678853
+        },
+        {
+          "chunk_index": 46,
+          "page_number": 7,
+          "similarity": 0.649761730316056
+        },
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "similarity": 0.563109145113591
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 7,
+          "similarity": 0.553074216342429
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 34,
+          "page_number": 6,
+          "content": "into\nfout =\nX\nj\nΛ\n−1\n2\nj\nAjΛ\n−1\n2\nj\nfinWj,\n(10)\nwhere similarly Λii\nj = P\nk(Aik\nj )+α. Here we set α = 0.001\nto avoid empty rows in Aj.\nIt is straightforward to implement the learnable edge im-\nportance weighting. For each adjacency matrix, we accom-\npany it with a learnable weight matrix M. And we substi-\ntute the matrix A + I in Eq. 9 and Aj in Aj in Eq. 10 with\n(A + I) ⊗M and Aj ⊗M, respectively. Here ⊗denotes\nelement-wise product between two matrixes. The mask M\nis initialized as an all-one matrix.\nNetwork architecture and training.\nSince the ST-GCN\nshare weights on different nodes, it is important to keep the\nscale of input data consistent on different joints. In our ex-\nperiments, we ﬁrst feed input skeletons to a batch normal-\nization layer to normalize data. The ST-GCN model is com-\nposed of 9 layers of spatial temporal graph convolution op-\nerators (ST-GCN units). The ﬁrst three layers have 64 chan-\nnels for output. The follow three layers have 128 channels\nfor output. And the",
+          "similarity": 0.708140721627803
+        },
+        {
+          "chunk_index": 31,
+          "page_number": 5,
+          "content": "recognition ex-\nperiments. It is expected that a more advanced partitioning\nstrategy will lead to better modeling capacity and recogni-\ntion performance.\n3.5\nLearnable edge importance weighting.\nAlthough joints move in groups when people are performing\nactions, one joint could appear in multiple body parts. These\nappearances, however, should have different importance in\nmodeling the dynamics of these parts. In this sense, we add\na learnable mask M on every layer of spatial temporal graph\nconvolution. The mask will scale the contribution of a node’s\nfeature to its neighboring nodes based on the learned impor-\ntance weight of each spatial graph edge in ES. Empirically\nwe ﬁnd adding this mask can further improve the recogni-\ntion performance of ST-GCN. It is also possible to have a\ndata dependent attention map for this sake. We leave this to\nfuture works.\n3.6\nImplementing ST-GCN\nThe implementation of graph-based convolution is not as\nstraightforward as 2D or 3D convolution. Here we provid",
+          "similarity": 0.660914004678853
+        },
+        {
+          "chunk_index": 46,
+          "page_number": 7,
+          "content": " of\nthe two subsets in distance partitioning to be different only\nby a scaling factor −1, or w0 = −w1. This setting still\nachieves better performance than uni-labeling, which again\ndemonstrate the importance of the partitioning with multiple\nsubsets. Among multi-subset partitioning strategies, the spa-\ntial conﬁguration partitioning achieves better performance.\nThis corroborates our motivation in designing this strategy,\nwhich takes into consideration the concentric and eccentric\nmotion patterns. Based on these observations, we use the\nspatial conﬁguration partitioning strategy in the following\nexperiments.\nLearnable edge importance weighting.\nAnother compo-\nnent in ST-GCN is the learnable edge importance weight-\ning. We experiment with adding this component on the ST-\nGCN model with spatial conﬁguration partitioning. This is\nreferred to as “ST-GCN+Imp.” in Table 1. Given the high\nperforming vanilla ST-GCN, this component is still able to\nraise the recognition performance by more than ",
+          "similarity": 0.649761730316056
+        },
+        {
+          "chunk_index": 7,
+          "page_number": 2,
+          "content": "ted thereon, which allow information to be inte-\ngrated along both the spatial and the temporal dimension.\nThe hierarchical nature of ST-GCN eliminates the need of\nhand-crafted part assignment or traversal rules. This not only\nleads to greater expressive power and thus higher perfor-\nmance (as shown in our experiments), but also makes it easy\nto generalize to different contexts. Upon the generic GCN\nformulation, we also study new strategies to design graph\nconvolution kernels, with inspirations from image models.\nThe major contributions of this work lie in three aspects:\n1) We propose ST-GCN, a generic graph-based formulation\nfor modeling dynamic skeletons, which is the ﬁrst that ap-\nplies graph-based neural networks for this task. 2) We pro-\npose several principles in designing convolution kernels in\nST-GCN to meet the speciﬁc demands in skeleton model-\ning. 3) On two large scale datasets for skeleton-based action\nrecognition, the proposed model achieves superior perfor-\nmance as comp",
+          "similarity": 0.563109145113591
+        },
+        {
+          "chunk_index": 47,
+          "page_number": 7,
+          "content": "al conﬁguration partitioning. This is\nreferred to as “ST-GCN+Imp.” in Table 1. Given the high\nperforming vanilla ST-GCN, this component is still able to\nraise the recognition performance by more than 1 percent.\nRecall that this component is inspired by the fact that joints\nin different parts have different importances. It is veriﬁed\nthat the ST-GCN model can now learn to express the joint\nimportance and improve the recognition performance. Based\non this observation, we always use this component with ST-\nGCN in comparison with other state-of-the-art models.\n4.3\nComparison with State of the Arts\nTo verify the performance of ST-GCN in both uncon-\nstrained and constraint environment, we perform experi-\nments on Kinetics dataset (Kay et al. 2017) and NTU-\nRGB+D dataset(Shahroudy et al. 2016), respectively.\nKinetics.\nOn Kinetics, we compare with three character-\nistic approaches for skeleton based action recognition. The\nﬁrst is the feature encoding approach on hand-crafted fea-\ntures (Ferna",
+          "similarity": 0.553074216342429
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yan2018_q5",
+      "paper_id": 6,
+      "question": "Which partitioning strategy performs best in the ablation study, and what improvement does learnable edge importance weighting provide?",
+      "ground_truth_pages": [
+        7
+      ],
+      "status": "completed",
+      "answer": "- Best partitioning strategy: the spatial configuration partitioning (the centripetal/centrifugal three-subset scheme) performs best in the ablation study [Page 7][Page 5].  \n- Learnable edge importance weighting: adding a per-edge learnable mask further raises recognition performance (i.e., it improves results), but the exact numerical improvement is not given in the provided excerpts and thus cannot be determined from the supplied context [Page 7][Page 5][Page 6].",
+      "retrieved_pages": [
+        7,
+        5,
+        5,
+        6,
+        4
+      ],
+      "cited_pages": [
+        7,
+        5,
+        6
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 46,
+          "page_number": 7,
+          "similarity": 0.600142353054516
+        },
+        {
+          "chunk_index": 30,
+          "page_number": 5,
+          "similarity": 0.593377082929428
+        },
+        {
+          "chunk_index": 31,
+          "page_number": 5,
+          "similarity": 0.521065514181649
+        },
+        {
+          "chunk_index": 34,
+          "page_number": 6,
+          "similarity": 0.468618078496987
+        },
+        {
+          "chunk_index": 27,
+          "page_number": 4,
+          "similarity": 0.448079785212642
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 46,
+          "page_number": 7,
+          "content": " of\nthe two subsets in distance partitioning to be different only\nby a scaling factor −1, or w0 = −w1. This setting still\nachieves better performance than uni-labeling, which again\ndemonstrate the importance of the partitioning with multiple\nsubsets. Among multi-subset partitioning strategies, the spa-\ntial conﬁguration partitioning achieves better performance.\nThis corroborates our motivation in designing this strategy,\nwhich takes into consideration the concentric and eccentric\nmotion patterns. Based on these observations, we use the\nspatial conﬁguration partitioning strategy in the following\nexperiments.\nLearnable edge importance weighting.\nAnother compo-\nnent in ST-GCN is the learnable edge importance weight-\ning. We experiment with adding this component on the ST-\nGCN model with spatial conﬁguration partitioning. This is\nreferred to as “ST-GCN+Imp.” in Table 1. Given the high\nperforming vanilla ST-GCN, this component is still able to\nraise the recognition performance by more than ",
+          "similarity": 0.600142353054516
+        },
+        {
+          "chunk_index": 30,
+          "page_number": 5,
+          "content": " to divide the neighbor set into three subsets: 1) the\nroot node itself; 2)centripetal group: the neighboring nodes\nthat are closer to the gravity center of the skeleton than the\nroot node; 3) otherwise the centrifugal group. Here the av-\nerage coordinate of all joints in the skeleton at a frame is\ntreated as its gravity center. This strategy is inspired by the\nfact that motions of body parts can be broadly categorized\nas concentric and eccentric motions. Formally, we have\nlti(vtj) =\n\n\n\n0\nif rj = ri\n1\nif rj < ri\n2\nif rj > ri\n(8)\nwhere ri is the average distance from gravity center to joint\ni over all frames in the training set.\nVisualization of the three partitioning strategies is shown\nin Fig. 3. We will empirically examine the proposed par-\ntioning strategies on skeleton based action recognition ex-\nperiments. It is expected that a more advanced partitioning\nstrategy will lead to better modeling capacity and recogni-\ntion performance.\n3.5\nLearnable edge importance weighting.\nAltho",
+          "similarity": 0.593377082929428
+        },
+        {
+          "chunk_index": 31,
+          "page_number": 5,
+          "content": "recognition ex-\nperiments. It is expected that a more advanced partitioning\nstrategy will lead to better modeling capacity and recogni-\ntion performance.\n3.5\nLearnable edge importance weighting.\nAlthough joints move in groups when people are performing\nactions, one joint could appear in multiple body parts. These\nappearances, however, should have different importance in\nmodeling the dynamics of these parts. In this sense, we add\na learnable mask M on every layer of spatial temporal graph\nconvolution. The mask will scale the contribution of a node’s\nfeature to its neighboring nodes based on the learned impor-\ntance weight of each spatial graph edge in ES. Empirically\nwe ﬁnd adding this mask can further improve the recogni-\ntion performance of ST-GCN. It is also possible to have a\ndata dependent attention map for this sake. We leave this to\nfuture works.\n3.6\nImplementing ST-GCN\nThe implementation of graph-based convolution is not as\nstraightforward as 2D or 3D convolution. Here we provid",
+          "similarity": 0.521065514181649
+        },
+        {
+          "chunk_index": 34,
+          "page_number": 6,
+          "content": "into\nfout =\nX\nj\nΛ\n−1\n2\nj\nAjΛ\n−1\n2\nj\nfinWj,\n(10)\nwhere similarly Λii\nj = P\nk(Aik\nj )+α. Here we set α = 0.001\nto avoid empty rows in Aj.\nIt is straightforward to implement the learnable edge im-\nportance weighting. For each adjacency matrix, we accom-\npany it with a learnable weight matrix M. And we substi-\ntute the matrix A + I in Eq. 9 and Aj in Aj in Eq. 10 with\n(A + I) ⊗M and Aj ⊗M, respectively. Here ⊗denotes\nelement-wise product between two matrixes. The mask M\nis initialized as an all-one matrix.\nNetwork architecture and training.\nSince the ST-GCN\nshare weights on different nodes, it is important to keep the\nscale of input data consistent on different joints. In our ex-\nperiments, we ﬁrst feed input skeletons to a batch normal-\nization layer to normalize data. The ST-GCN model is com-\nposed of 9 layers of spatial temporal graph convolution op-\nerators (ST-GCN units). The ﬁrst three layers have 64 chan-\nnels for output. The follow three layers have 128 channels\nfor output. And the",
+          "similarity": 0.468618078496987
+        },
+        {
+          "chunk_index": 27,
+          "page_number": 4,
+          "content": "egy is to have subset, which is the whole neighbor\nset itself. In this strategy, feature vectors on every neigh-\nboring node will have a inner product with the same weight\nvector. Actually, this strategy resembles the propagation rule\nintroduced in (Kipf and Welling 2017). It has an obvious\ndrawback that in the single frame case, using this strategy\nis equivalent to computing the inner product between the\nweight vector and the average feature vector of all neigh-\nboring nodes. This is suboptimal for skeleton sequence clas-\nsiﬁcation as the local differential properties could be lost in\nthis operation. Formally, we have K = 1 and lti(vtj) =\n0, ∀i, j ∈V .\n",
+          "similarity": 0.448079785212642
+        }
+      ],
+      "review": {
+        "answer_correctness": false,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": "The answer correctly identifies spatial configuration partitioning, but does not report the >1% improvement from learnable edge importance weighting."
+      }
+    },
+    {
+      "id": "xin2023_q1",
+      "paper_id": 5,
+      "question": "What are the three main categories in the proposed taxonomy of Transformer-based skeleton action recognition?",
+      "ground_truth_pages": [
+        3,
+        4
+      ],
+      "status": "completed",
+      "answer": "The three main categories are: Supervised learning, Unsupervised learning, and Transfer learning [Page 3].",
+      "retrieved_pages": [
+        3,
+        3,
+        2,
+        6,
+        1
+      ],
+      "cited_pages": [
+        3
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "similarity": 0.817573087956933
+        },
+        {
+          "chunk_index": 21,
+          "page_number": 3,
+          "similarity": 0.746797808474319
+        },
+        {
+          "chunk_index": 11,
+          "page_number": 2,
+          "similarity": 0.741061757541978
+        },
+        {
+          "chunk_index": 40,
+          "page_number": 6,
+          "similarity": 0.738758018534821
+        },
+        {
+          "chunk_index": 2,
+          "page_number": 1,
+          "similarity": 0.736327212246842
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "content": " changes. Finally, the challenges faced by the\ncurrent skeleton-based action recognition methods are dis-\ncussed, and the future development directions are prospected.\n2. Taxonomy: We classify Transformer-based Skeleton Action\nRecognition into three main categories: Supervised learning,\nUnsupervised learning, and Transfer learning. Further, all\ntransformer-based methods are classiﬁed into ﬁve sub-classes.\n(a) (Supervised) Pure Transformer: The standard transformers\nsimultaneously extract joint interaction information in\nspace and inter-frame feature interaction information in\ntime.\nW. Xin, R. Liu, Y. Liu et al.\nNeurocomputing 537 (2023) 164–186\n166\n",
+          "similarity": 0.817573087956933
+        },
+        {
+          "chunk_index": 21,
+          "page_number": 3,
+          "content": "n action recognition\nhas attracted much attention in computer vision and artiﬁcial\nintelligence applications in recent years. In particular, the Trans-\nformer has been the most popular basic feature extraction struc-\nture\nin\nthe\npast\nﬁve\nyears.\nHowever,\nto\nthe\nbest\nof\nour\nknowledge, there is no comprehensive introduction and compar-\nison of recent transformer-based skeleton action recognition meth-\nods in any literature. The main contributions of this paper are as\nfollows:\n1. Overview: This paper presents a detailed and comprehensive\nreview of transformer-based skeleton action recognition algo-\nrithms. In addition, the corresponding datasets and accuracies\nare introduced, evaluated, and compared to purposefully dis-\ncuss the data modality, network structure, weight updates,\nand information changes. Finally, the challenges faced by the\ncurrent skeleton-based action recognition methods are dis-\ncussed, and the future development directions are prospected.\n2. Taxonomy: We classify Transfo",
+          "similarity": 0.746797808474319
+        },
+        {
+          "chunk_index": 11,
+          "page_number": 2,
+          "content": "tion methods\nbased on transformer. Xing et al. [54] summarize practices related\nto 3D skeleton action recognition based on deep learning methods,\nincluding relevant algorithms in RNN-based, CNN-based, and GCN-\nbased technologies, and compare the performance of existing\nmotion recognition methods. The survey discusses improvements\nand related structures of several classic algorithm models, but\nthe reﬁned classiﬁcation is not carried out. Simultaneously, classi-\nﬁcation and introduction of methods based on transformer are\nlacking. Qing et al. [55] describe the existing works on skeleton-\nbased action recognition and categorizes them from the perspec-\ntive of spatial feature extraction, temporal pattern capture, and\nFig. 1. Classiﬁcation of Transformer for skeleton-based action recognition methods.\nW. Xin, R. Liu, Y. Liu et al.\nNeurocomputing 537 (2023) 164–186\n165\n",
+          "similarity": 0.741061757541978
+        },
+        {
+          "chunk_index": 40,
+          "page_number": 6,
+          "content": "mation due to feature mapping.\nMoreover, the self-attention mechanism has a powerful ability to\nobtain global information, which is conducive to grasping the\nspatio-temporal feature changes of the skeleton from an overall\nperspective. Compared with GCN, Transformer facilitates the\nacquisition of distal joint association relations and does not require\nthe assistance of additional learnable parameter edges. Given the\nstrong potential of transformers in skeleton action recognition,\nwe propose a new taxonomy—Transformer-based Skeleton Action\nRecognition Taxonomy.\nThe structure of this section is arranged as follows. Section 3.1\ncontains the deﬁnition, classiﬁcation criteria, and method content\nof Pure Transformer. Section 3.2 contains the deﬁnition, classiﬁca-\ntion criteria and subclassiﬁcation rules of Hybrid Transformer. Sec-\ntion 3.3 contains the deﬁnition, classiﬁcation criteria, and method\ncontent of Transformer-sytle GCN. Section 3.4 contains the deﬁni-\ntion, classiﬁcation criteria, ",
+          "similarity": 0.738758018534821
+        },
+        {
+          "chunk_index": 2,
+          "page_number": 1,
+          "content": "oly of GCN. Therefore, we conduct a survey using transformer\nmethod for skeleton-based action recognition, forming of a taxonomy on existing works. This paper gives\na comprehensive overview of the recent transformer techniques for skeleton action recognition, proposes\na taxonomy of transformer-style techniques for action recognition, conducts a detailed study on bench-\nmark datasets, compares the algorithm accuracy of standard methods, and ﬁnally discusses the future\nresearch directions and trends. To the best of our knowledge, this study is the ﬁrst to describe\nskeleton-based action recognition techniques in the style of transformers and to suggest novel recogni-\ntion taxonomies in a review. We are conﬁdent that Transformer-based action recognition technology will\nbecome mainstream in the near future, so this survey aims to help researchers systematically learn core\ntasks, select appropriate datasets, understand current challenges, and select promising future directions.\n\u0001 2023 Elsevi",
+          "similarity": 0.736327212246842
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "xin2023_q2",
+      "paper_id": 5,
+      "question": "What is the difference between a Transformer-style GCN and incorporating GCN into a Transformer?",
+      "ground_truth_pages": [
+        3
+      ],
+      "status": "completed",
+      "answer": "The two are different in purpose and where the transformer mechanism is applied:\n\n- Transformer-style GCN: the transformer (self‑attention) is used to construct the adjacency/correlation matrix (i.e., attention builds spatial/temporal relationships). Variants include spatial‑only, temporal‑only, spatial–temporal and multi‑partition Transformer‑style GCNs that use the transformer to build relationship matrices [Page 3][Page 4].\n\n- Incorporating GCN into a Transformer: here a conventional GCN is plugged into the transformer pipeline as a supplement to improve local (e.g., short‑range) feature extraction; the overall infrastructure and tricks follow standard transformer designs (positional embeddings, multi‑head attention, etc.) [Page 3][Page 5].",
+      "retrieved_pages": [
+        7,
+        3,
+        4,
+        5,
+        6
+      ],
+      "cited_pages": [
+        3,
+        4,
+        5
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 55,
+          "page_number": 7,
+          "similarity": 0.690315298454383
+        },
+        {
+          "chunk_index": 15,
+          "page_number": 3,
+          "similarity": 0.682097318731118
+        },
+        {
+          "chunk_index": 24,
+          "page_number": 4,
+          "similarity": 0.669199648633591
+        },
+        {
+          "chunk_index": 36,
+          "page_number": 5,
+          "similarity": 0.661120858186716
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 6,
+          "similarity": 0.660696853469881
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 55,
+          "page_number": 7,
+          "content": "id Transformer are\nmainly composed of: spatial transformer, spatial graph convolu-\ntion (Spatial GraFormer), temporal transformer, temporal convolu-\ntion\nand\ntemporal\nconvolution\n&\ntransformer\n(Temporal\nConvFormer). Hybrid Transformer blends GCN and CNN in the\nstandard Transformer as a complementary feature extraction\nmethod. The convergence of technologies helps give full play to\nthe advantages of different base models and promotes the migra-\ntion and application of Transformer on different widely used algo-\nrithms. We overcome the difﬁculty of distinguishing between\nvarious models. According to the arrangement of different models\nin the overall framework, all Hybrid Transformers are clearly\ndivided into two main categories—serial association transformer,\nW. Xin, R. Liu, Y. Liu et al.\nNeurocomputing 537 (2023) 164–186\n170\n",
+          "similarity": 0.690315298454383
+        },
+        {
+          "chunk_index": 15,
+          "page_number": 3,
+          "content": "dopt the self-attention module\nand classify them as Transformer-style GCN.\nCompared with GCN-based methods, Transformer [78,79] can\nquickly obtain global topology information and increase the corre-\nlation strength of non-physical joints through network updates,\nbut it is weak in extracting discriminative information from local\nfeatures and short-term temporal information [49]. So after the ini-\ntial introduction of Pure Transformer into skeleton action recogni-\ntion, GCN and CNN as complements make up for the defects of the\nbasic\nTransformer,\ncalled\nHybrid\nTransformer.\nIn\nparticular,\nTransformer-style GCN and incorporating GCN into transformer\nare distinct. The Transformer-style GCN focuses on constructing\nthe adjacency matrix through the self-attention mechanism, while\nthe latter uses GCN as a supplement to improve the ability of local\nfeature extraction, and both the infrastructure and tricks follow the\nrules of standard transformers, such as Positional Embedding and\nMulti-Heads Att",
+          "similarity": 0.682097318731118
+        },
+        {
+          "chunk_index": 24,
+          "page_number": 4,
+          "content": "module in the network is\narranged in series.\n(2)\nParallel Association Transformer: GCN, CNN, spatial\ntransformer, and temporal transformer are used\ntogether, and each module in the network is arranged\nin parallel.\n(c) (Supervised) Transformer-style GCN: The correlation matrix is\ngenerated through the self-attention mechanism or the con-\nstruction of interactive matrix strategy.\n(1)\nSpatial-only Transformer-style GCN: The transformer\nstrategy is used only on the adjacency matrix con-\nstruction in the spatial domain.\n(2)\nTemporal-only\nTransformer-style\nGCN:\nThe\ntrans-\nformer strategy is used only on the correlation matrix\nconstruction in the temporal domain.\n(3)\nSpatial–Temporal Transformer-style GCN: The trans-\nformer strategy is adopted in the construction of\nthe relationship matrix in the temporal and spatial\ndomain.\n(4)\nMulti-partition\nTransformer-style\nGCN:\nThe\ntrans-\nformer strategy is applied to build multi-level or\nmulti-modal relationship matrices.\n(d) (Unsupervised) Unsupervise",
+          "similarity": 0.669199648633591
+        },
+        {
+          "chunk_index": 36,
+          "page_number": 5,
+          "content": "nt \nMatrix\nOutput\nTransformer-style GCN\nSkeleton Transformer\nSkeleton\nTopology\nInput\nQuery\nValue\nLinear\nOperation\nKey\nSelf-\nAttention\nMasked \nMatrix\nOutput\nTricks\nFig. 3. Illustrating the comparison between Transformer-style GCN and Skeleton Transformer in implementation.\nFig. 2. Illustrating the comparison between Vision Transformer and Skeleton Transformer in implementation.\nW. Xin, R. Liu, Y. Liu et al.\nNeurocomputing 537 (2023) 164–186\n168\n",
+          "similarity": 0.661120858186716
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 6,
+          "content": "n rules of Hybrid Transformer. Sec-\ntion 3.3 contains the deﬁnition, classiﬁcation criteria, and method\ncontent of Transformer-sytle GCN. Section 3.4 contains the deﬁni-\ntion, classiﬁcation criteria, and method content of Unsupervised\nTransformer. Section 3.5 contains the deﬁnition, classiﬁcation cri-\nteria, and method content of Transfer Transformer. In Section 3.6,\nwe uniformly introduce the innovation points and the main prob-\nlems solved by these methods.\n3.1. Pure transformer for Skeleton-based action recognition\nAs shown in the Fig. 4, the module composition of Pure Trans-\nformer is mainly composed of: spatial transformer, temporal trans-\nformer\nand\nspatial–temporal\nfusion\ntransformer.\nThe\nPure\nTransformer only uses transformer structure as the feature extrac-\ntor in the temporal and spatial domain processing, and the stan-\ndard Transformer extracts the joint information in space and the\ninter-frame feature interaction information in time. According to\nthe arrangement of spatial ",
+          "similarity": 0.660696853469881
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "xin2023_q3",
+      "paper_id": 5,
+      "question": "What advantages and weaknesses does the paper identify for Transformers in skeleton-based action recognition?",
+      "ground_truth_pages": [
+        3
+      ],
+      "status": "completed",
+      "answer": "Advantages (from the provided excerpts)\n- Transformers provide a global relational dependency that helps extract global spatial and temporal associations in skeleton data [Page 11].  \n- They help extract class-specific prototypes and maintain consistency in the latent space, which aids transfer learning (including few‑shot and one‑shot settings) [Page 3].  \n- Because of their global relational modeling, transformer-based networks can better handle human-pose occlusion and transfer to new, scarce-data action classes [Page 3; Page 11].  \n\nWeaknesses\n- The provided excerpts do not state specific weaknesses of Transformers for skeleton-based action recognition. This cannot be determined from the supplied pages.",
+      "retrieved_pages": [
+        3,
+        3,
+        11,
+        3,
+        1
+      ],
+      "cited_pages": [
+        11,
+        3
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 21,
+          "page_number": 3,
+          "similarity": 0.745316244508068
+        },
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "similarity": 0.742624237813682
+        },
+        {
+          "chunk_index": 92,
+          "page_number": 11,
+          "similarity": 0.738403507315049
+        },
+        {
+          "chunk_index": 20,
+          "page_number": 3,
+          "similarity": 0.731238419102411
+        },
+        {
+          "chunk_index": 0,
+          "page_number": 1,
+          "similarity": 0.729350007412399
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 21,
+          "page_number": 3,
+          "content": "n action recognition\nhas attracted much attention in computer vision and artiﬁcial\nintelligence applications in recent years. In particular, the Trans-\nformer has been the most popular basic feature extraction struc-\nture\nin\nthe\npast\nﬁve\nyears.\nHowever,\nto\nthe\nbest\nof\nour\nknowledge, there is no comprehensive introduction and compar-\nison of recent transformer-based skeleton action recognition meth-\nods in any literature. The main contributions of this paper are as\nfollows:\n1. Overview: This paper presents a detailed and comprehensive\nreview of transformer-based skeleton action recognition algo-\nrithms. In addition, the corresponding datasets and accuracies\nare introduced, evaluated, and compared to purposefully dis-\ncuss the data modality, network structure, weight updates,\nand information changes. Finally, the challenges faced by the\ncurrent skeleton-based action recognition methods are dis-\ncussed, and the future development directions are prospected.\n2. Taxonomy: We classify Transfo",
+          "similarity": 0.745316244508068
+        },
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "content": " changes. Finally, the challenges faced by the\ncurrent skeleton-based action recognition methods are dis-\ncussed, and the future development directions are prospected.\n2. Taxonomy: We classify Transformer-based Skeleton Action\nRecognition into three main categories: Supervised learning,\nUnsupervised learning, and Transfer learning. Further, all\ntransformer-based methods are classiﬁed into ﬁve sub-classes.\n(a) (Supervised) Pure Transformer: The standard transformers\nsimultaneously extract joint interaction information in\nspace and inter-frame feature interaction information in\ntime.\nW. Xin, R. Liu, Y. Liu et al.\nNeurocomputing 537 (2023) 164–186\n166\n",
+          "similarity": 0.742624237813682
+        },
+        {
+          "chunk_index": 92,
+          "page_number": 11,
+          "content": "uations. In particular, since the transformer strategy\nadopted in this paper is not for self-supervision, it is classiﬁed as\nPure Transformer.\n3.5. Transfer transformer for Skeleton-based action recognition\nIn terms of extracting class-speciﬁc prototypes and maintaining\nconsistency in the latent space, the Transformer-based network\nhelps transfer learning to better utilize the global spatial and tem-\nporal association representation. In particular, thanks to the trans-\nformer’s global relational dependency, the network also has the\nability to deal with human pose occlusion. According to speciﬁc\napplication scenarios, all transfer transformers are divided into\ntwo categories: few-shot transformer and one-shot transformer.\nFew-shot and one-shot methods represent skeleton action recogni-\ntion tasks that provide a small number or a single labeled sample\nduring the training phase, respectively.\n3.5.1. Few-shot transformer\nJoint temporal location and simulated viewpoint indexes facili-\ntate ",
+          "similarity": 0.738403507315049
+        },
+        {
+          "chunk_index": 20,
+          "page_number": 3,
+          "content": "racting class-speciﬁc\nprototypes and maintaining latent space consistency. At the same\ntime, transfer learning based on transformer network has the abil-\nity to deal with human pose occlusion and transfer to new scarce\ndata action classes [126,127].\nIn this paper, we summarize recent research on human action\nrecognition using transformers. For the literature survey and data\ncollection, strictly follow:\n(1) This paper is a serious, detailed, and realistic introduction to\ntransformer-based skeleton action recognition.\n(2) The cited papers are selected from journals and conferences,\nincluding the latest published papers.\n(3) The experiments and results have been veriﬁed by enough\npublished papers and the corresponding methods have been\nproperly explained.\nResearch contributions. Human skeleton action recognition\nhas attracted much attention in computer vision and artiﬁcial\nintelligence applications in recent years. In particular, the Trans-\nformer has been the most popular basic feature e",
+          "similarity": 0.731238419102411
+        },
+        {
+          "chunk_index": 0,
+          "page_number": 1,
+          "content": "Transformer for Skeleton-based action recognition: A review of recent\nadvances q\nWentian Xin a,b, Ruyi Liu a,b, Yi Liu a,b, Yu Chen a,b, Wenxin Yu a,b, Qiguang Miao a,b,⇑\na Xi’an Key Laboratory of Big Data and Intelligent Vision, Xi’an 710071, Shaanxi, China\nb School of Computer Science and Technology, Xidian University, 2 Taibainan Road, Xi’an 710071, Shaanxi, China\na r t i c l e\ni n f o\nArticle history:\nReceived 15 December 2022\nRevised 27 January 2023\nAccepted 4 March 2023\nAvailable online 30 March 2023\nKeywords:\nTransformer\nGraph convolution network\nSkeleton-based action recognition\nSpatial temporal structure\nSurvey\na b s t r a c t\nSkeleton-based action recognition has rapidly become one of the most popular and essential research\ntopics in computer vision. The task is to analyze the characteristics of human joints and accurately clas-\nsify their behaviors through deep learning technology. Skeleton provides numerous unique advantages\nover other data modalities, such as robustness, c",
+          "similarity": 0.729350007412399
+        }
+      ],
+      "review": {
+        "answer_correctness": false,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": "The answer provides supported advantages but does not answer the weaknesses part of the question."
+      }
+    },
+    {
+      "id": "xin2023_q4",
+      "paper_id": 5,
+      "question": "What are the main drawbacks of supervised skeleton-based action recognition methods discussed in the paper?",
+      "ground_truth_pages": [
+        3
+      ],
+      "status": "completed",
+      "answer": "The paper identifies three main drawbacks of supervised skeleton-based action recognition methods: (1) they require large amounts of labeled data; (2) they are highly sensitive to noise; and (3) they have difficulty recognizing actions in complex scenes [Page 3]. The paper also notes that pose-estimation issues (e.g., jitter or missing joints) and poor-quality skeleton data can have a disastrous impact on recognition results, reinforcing the sensitivity-to-data-quality problem [Page 17].",
+      "retrieved_pages": [
+        3,
+        2,
+        17,
+        3,
+        1
+      ],
+      "cited_pages": [
+        3,
+        17
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 17,
+          "page_number": 3,
+          "similarity": 0.70894214701761
+        },
+        {
+          "chunk_index": 9,
+          "page_number": 2,
+          "similarity": 0.700247943052613
+        },
+        {
+          "chunk_index": 142,
+          "page_number": 17,
+          "similarity": 0.678033677527337
+        },
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "similarity": 0.663694648555653
+        },
+        {
+          "chunk_index": 4,
+          "page_number": 1,
+          "similarity": 0.657426397935364
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 17,
+          "page_number": 3,
+          "content": " amounts of labeled data. (2) Highly sensitive to noise. (3) Dif-\nﬁculty in recognizing actions in complex scenes. Since learning on\nunlabeled data can improve the generalization ability of features,\nun-/semi-supervised and self-supervised human skeleton-based\naction recognition have attracted more attention. Unsupervised\n(including semi-/self-supervised) methods are beneﬁcial to allevi-\nate the overﬁtting problem and reduce the need for a massive\namount of labeled data. Unsupervised action recognition learns\nthe global context of the whole action sequence to infer the motion\ndetails of local joints and the overall topology [81]. In skeleton-\nbased\naction\nrecognition\ntasks,\nunsupervised\nand\nsemi-\nsupervised methods mostly utilize encoder-decoder models [82–\n85],\ncontrastive\nlearning\n[86–89],\nand\nclustering\nstrategies\n[90,91]. Self-supervised methods mostly utilize contrastive learn-\ning models [92–107]. However, the performance of these algo-\nrithms is highly dependent on the choice of",
+          "similarity": 0.70894214701761
+        },
+        {
+          "chunk_index": 9,
+          "page_number": 2,
+          "content": "e existing\nskeleton-based action recognition methods. Ahmad et al. [50] out-\nline the skeleton action recognition algorithms based on graph\nconvolution and divide the action recognition into ﬁve subcate-\ngories, which describe the corresponding algorithm network\nmodel, mathematical principles, contributions, and limitations.\nHowever, the review lacks the introduction of transformer, which\nis\nnot\nconducive\nto\nhelping\nresearchers\nform\na\nmacro-\ncomprehensive combing of skeleton action recognition methods.\nFeng et al. [51] expound and analyze action recognition based on\nGCN. Five representative baseline datasets are selected to evaluate\nthe performance of several kinds of iconic skeleton-based GCN\nmethods for human action recognition. The shortcomings are that\nthe classiﬁcation of skeleton action recognition methods based on\nGCN is not clear, and the introduction of transformer is also lack-\ning. Yue et al. [52] introduce the main models and algorithms of\ntraditional manual method, RGB-bas",
+          "similarity": 0.700247943052613
+        },
+        {
+          "chunk_index": 142,
+          "page_number": 17,
+          "content": "So how to apply skeleton action recognition algorithm to\nbuild the efﬁcient end-to-end module is a serious challenge.\nSome\nsemi-supervised\n[107,175,87,176,105]\ntechniques\nhope to make up for the loss of the model by reducing the\namount of data acquisition, but the experimental results\ncan ﬁnd that the key is the high quality of the data. The jitter\nor disappearance of skeleton data caused by the existing\npose estimation algorithm will have a disastrous impact on\nthe results of action recognition. Perhaps there is a need\nfor photography devices such as kinetics to algorithmically\noptimize and balance costs for better skeleton acquisition\nand preprocessing at the bottom of the raw data.\n(2) The challenge in multi-person recognition. Most of the existing\nskeleton-based action recognition datasets are for single and\ndouble people. In practical applications, more scenarios are\nfor multi-person behavior recognition. Multi-person skele-\nton extraction algorithms have made some progress [177–\n",
+          "similarity": 0.678033677527337
+        },
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "content": " changes. Finally, the challenges faced by the\ncurrent skeleton-based action recognition methods are dis-\ncussed, and the future development directions are prospected.\n2. Taxonomy: We classify Transformer-based Skeleton Action\nRecognition into three main categories: Supervised learning,\nUnsupervised learning, and Transfer learning. Further, all\ntransformer-based methods are classiﬁed into ﬁve sub-classes.\n(a) (Supervised) Pure Transformer: The standard transformers\nsimultaneously extract joint interaction information in\nspace and inter-frame feature interaction information in\ntime.\nW. Xin, R. Liu, Y. Liu et al.\nNeurocomputing 537 (2023) 164–186\n166\n",
+          "similarity": 0.663694648555653
+        },
+        {
+          "chunk_index": 4,
+          "page_number": 1,
+          "content": "cognition task. How-\never, extracting action representation or mapping features directly\nfrom video sequences ignores the inherent interaction between\nhuman joints, which makes the algorithm vulnerable to the inter-\nference of environmental background and natural light [34]. Based\non RGB images, 2D & 3D skeleton data are readily available, which\ncan be generated by pose estimation methods [35,36] or acquired\nby devices such as Microsoft Kinetics [37,38]. Skeleton data pro-\nvide detailed position and motion information of human joints,\nwhich facilitates the construction of spatio-temporal and motion\nfeatures [39]. The dataset composed of skeletons helps the algo-\nrithm to focus on the essential characteristics of the action behav-\nior, avoid the interference of the background, and effectively\nimprove\nthe\naccuracy\nof\naction\nrecognition\nin\ncomplex\nenvironments.\nThe core of human action recognition is to obtain discriminative\nfeature representation [34]. Different from the RGB representati",
+          "similarity": 0.657426397935364
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    },
+    {
+      "id": "xin2023_q5",
+      "paper_id": 5,
+      "question": "What types of methods are included under unsupervised and transfer Transformer approaches in the proposed taxonomy?",
+      "ground_truth_pages": [
+        4
+      ],
+      "status": "completed",
+      "answer": "Unsupervised Transformer:\n- General Unsupervised Transformer\n- Self-supervised Transformer\n\nTransfer Transformer:\n- Few-shot Transformer\n- One-shot Transformer\n\nThese categories are listed in the taxonomy for Transformer-based skeleton action recognition [Page 4].",
+      "retrieved_pages": [
+        4,
+        15,
+        3,
+        11,
+        6
+      ],
+      "cited_pages": [
+        4
+      ],
+      "unparsed_citations": [],
+      "sources": [
+        {
+          "chunk_index": 25,
+          "page_number": 4,
+          "similarity": 0.611216588829377
+        },
+        {
+          "chunk_index": 129,
+          "page_number": 15,
+          "similarity": 0.586749334911661
+        },
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "similarity": 0.586098474473985
+        },
+        {
+          "chunk_index": 87,
+          "page_number": 11,
+          "similarity": 0.585780507143956
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 6,
+          "similarity": 0.574858630915061
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_index": 25,
+          "page_number": 4,
+          "content": " temporal and spatial\ndomain.\n(4)\nMulti-partition\nTransformer-style\nGCN:\nThe\ntrans-\nformer strategy is applied to build multi-level or\nmulti-modal relationship matrices.\n(d) (Unsupervised) Unsupervised Transformer: The transformer\nmodel is used for unsupervised skeleton action learning.\n(1)\nGeneral Unsupervised Transformer: The transformer is\napplied to capture global context information.\n(2)\nSelf-supervised\nTransformer:\nThe\ntransformer\nis\napplied to obtain spatio-temporal global abstract\ninformation.\n(e) (Transfer) Transfer Transformer: The transformer model is\nused for transfer skeleton action learning.\n(1)\nFew-shot Transformer: The transformer is applied to\nimprove the global spatio-temporal position and\nindex alignment ability.\n(2)\nOne-shot Transformer: The transformer is applied to\nalleviate the universal occlusion interference that\noften exists in the real world.\n3. Datasets: This paper introduces the datasets involved in the\nabove classiﬁcation methods, which include multiple ne",
+          "similarity": 0.611216588829377
+        },
+        {
+          "chunk_index": 129,
+          "page_number": 15,
+          "content": "CN\nA novel body symmetry trajectory attention (STA) module is\ndesigned to capture symmetric similarity and a part relation\nattention (PRA) module is proposed to measure the local\ncorrelation weight of adaptive adjacency matrix.\nSA-GCN enhances the shortcomings of current approaches in\nthe extraction of implicit structural characteristics, which\nare often concealed in the geometric properties of the\nskeleton in the spatial domain.\nTable 5\nInnovations and improvements in Unsupervised Transformer and Transfer Transformer.\nMethod\nTaxonomy\nInnovations\nImprovements\nGL-Transformer [108]\nGeneral\nUnsupervised\nTransformer\nTo model local joint dynamics and capture global context\nfrom skeletal motion sequences of multiple people, this\npaper designs a novel transformer architecture including\nglobal and local attention (GLA) mechanism.\nThe authors introduce a novel pretraining strategy, multi-\ninterval displacement prediction (MPDP), to learn both\nglobal and local attention in diverse time ranges. T",
+          "similarity": 0.586749334911661
+        },
+        {
+          "chunk_index": 22,
+          "page_number": 3,
+          "content": " changes. Finally, the challenges faced by the\ncurrent skeleton-based action recognition methods are dis-\ncussed, and the future development directions are prospected.\n2. Taxonomy: We classify Transformer-based Skeleton Action\nRecognition into three main categories: Supervised learning,\nUnsupervised learning, and Transfer learning. Further, all\ntransformer-based methods are classiﬁed into ﬁve sub-classes.\n(a) (Supervised) Pure Transformer: The standard transformers\nsimultaneously extract joint interaction information in\nspace and inter-frame feature interaction information in\ntime.\nW. Xin, R. Liu, Y. Liu et al.\nNeurocomputing 537 (2023) 164–186\n166\n",
+          "similarity": 0.586098474473985
+        },
+        {
+          "chunk_index": 87,
+          "page_number": 11,
+          "content": "supervised transformer. In particular, the general unsupervised\ntransformer only focuses on the traditional unsupervised skeleton\naction recognition task.\n3.4.1. General unsupervised transformer\nTo address the limitations of existing transformer models for\nunsupervised skeleton-based action learning methods in capturing\nglobal environment and local joint dynamics, GL-Transformer\n[108] designs a global and local attention mechanism for learning\nwhole-body motions, long-range temporal dynamics, and human–\nhuman interactions. The model takes human interaction into\naccount so that global body motion and local joint motion focus\non each other.\nUnsupervised methods focus on modeling temporal dependen-\ncies in sequences and lack the ability to model spatial structures in\nhuman actions. To better capture the spatial and temporal struc-\nture in skeleton sequences, Cheng et al. [109] propose H-\nTransformer, a novel hierarchically aggregated self-attention mod-\nule. Furthermore, H-Transformer pre",
+          "similarity": 0.585780507143956
+        },
+        {
+          "chunk_index": 41,
+          "page_number": 6,
+          "content": "n rules of Hybrid Transformer. Sec-\ntion 3.3 contains the deﬁnition, classiﬁcation criteria, and method\ncontent of Transformer-sytle GCN. Section 3.4 contains the deﬁni-\ntion, classiﬁcation criteria, and method content of Unsupervised\nTransformer. Section 3.5 contains the deﬁnition, classiﬁcation cri-\nteria, and method content of Transfer Transformer. In Section 3.6,\nwe uniformly introduce the innovation points and the main prob-\nlems solved by these methods.\n3.1. Pure transformer for Skeleton-based action recognition\nAs shown in the Fig. 4, the module composition of Pure Trans-\nformer is mainly composed of: spatial transformer, temporal trans-\nformer\nand\nspatial–temporal\nfusion\ntransformer.\nThe\nPure\nTransformer only uses transformer structure as the feature extrac-\ntor in the temporal and spatial domain processing, and the stan-\ndard Transformer extracts the joint information in space and the\ninter-frame feature interaction information in time. According to\nthe arrangement of spatial ",
+          "similarity": 0.574858630915061
+        }
+      ],
+      "review": {
+        "answer_correctness": true,
+        "groundedness": true,
+        "citation_correctness": true,
+        "notes": ""
+      }
+    }
+  ]
+}
