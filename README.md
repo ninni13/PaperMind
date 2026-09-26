@@ -4,6 +4,30 @@ PaperMind is a full-stack Retrieval-Augmented Generation (RAG) application for e
 
 Users can upload PDF papers, generate structured paper overviews, ask natural-language questions, and inspect the exact source passages used to generate each answer. The system combines semantic retrieval with page-level citations to keep answers grounded in the uploaded paper.
 
+## Live Demo
+
+https://papermind-beta.vercel.app
+
+## Demo
+
+### Ask questions with grounded, page-level citations
+
+![PaperMind Ask Paper](docs/ask-paper.png)
+
+PaperMind retrieves relevant passages from the selected paper and generates answers grounded in the retrieved evidence, with page-level citations.
+
+### Inspect the evidence behind each answer
+
+![PaperMind Source Viewer](docs/source-viewer.png)
+
+Each citation can be opened to inspect the exact source passage used as supporting evidence.
+
+### Generate a structured paper overview
+
+![PaperMind Paper Overview](docs/paper-overview.png)
+
+PaperMind generates a structured overview covering the research question, method, datasets, results, and limitations using retrieved evidence from the paper.
+
 ## Features
 
 - **PDF ingestion** — Upload and index research papers directly from PDF files.
@@ -53,7 +77,7 @@ When a paper is uploaded:
 1. The PDF is parsed with **PyMuPDF**.
 2. Text is extracted while preserving page numbers.
 3. Each page is divided into smaller text chunks.
-4. Chunks are embedded using **OpenAI `text-embedding-3-small`**.
+4. Chunks are embedded using OpenAI **`text-embedding-3-small`**.
 5. Embeddings and chunk metadata are stored in **PostgreSQL with pgvector**.
 
 When a user asks a question:
@@ -154,10 +178,54 @@ The evaluation scripts and benchmark data are available in [`evaluation/`](evalu
 - **Retrieval:** cosine similarity over pgvector embeddings
 - **Retrieval depth:** Top-5 chunks
 
+### Infrastructure
+
+- Docker
+- Google Cloud Run
+- Google Cloud Build
+- Google Artifact Registry
+- Google Cloud Secret Manager
+- Supabase
+- Vercel
+
+## Deployment
+
+PaperMind is deployed as a full-stack web application:
+
+- **Frontend:** Vercel
+- **Backend:** Google Cloud Run
+- **Containerization:** Docker
+- **Container Registry:** Google Artifact Registry
+- **Database / Vector Store:** Supabase PostgreSQL + pgvector
+- **Backend CI/CD:** Google Cloud Build
+- **Secrets:** Google Cloud Secret Manager
+
+### CI/CD
+
+Backend deployments are automated through Google Cloud Build.
+
+```text
+Push to main
+    │
+    ├── frontend/** ──► Vercel ──► Frontend deployment
+    │
+    └── backend/** ───► Cloud Build
+                            │
+                         Docker build
+                            │
+                     Artifact Registry
+                            │
+                         Cloud Run
+                            │
+                     Backend deployment
+```
+
+Changes to the frontend are automatically deployed by Vercel, while backend changes trigger a container build and Cloud Run deployment through Google Cloud Build.
+
 ## Project Structure
 
 ```text
-research-paper-rag/
+PaperMind/
 ├── backend/
 │   ├── app/
 │   │   ├── ask_service.py
@@ -174,6 +242,7 @@ research-paper-rag/
 │   │   └── repository.py
 │   ├── migrations/
 │   ├── tests/
+│   ├── Dockerfile
 │   └── requirements.txt
 │
 ├── frontend/
@@ -190,6 +259,12 @@ research-paper-rag/
 │   ├── results.json
 │   └── generation_results.json
 │
+├── docs/
+│   ├── ask-paper.png
+│   ├── source-viewer.png
+│   └── paper-overview.png
+│
+├── cloudbuild.yaml
 └── README.md
 ```
 
@@ -198,8 +273,8 @@ research-paper-rag/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd research-paper-rag
+git clone https://github.com/ninni13/PaperMind.git
+cd PaperMind
 ```
 
 ### 2. Backend setup
@@ -219,11 +294,14 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Create a `.env` file containing the required environment variables.
+Create a `.env` file containing the required environment variables:
 
 ```env
 OPENAI_API_KEY=your_openai_api_key
 DATABASE_URL=your_postgresql_connection_string
+
+# Optional — defaults to gpt-5-mini
+OVERVIEW_MODEL=gpt-5-mini
 ```
 
 Start the FastAPI server:
@@ -251,6 +329,17 @@ Open another terminal:
 ```bash
 cd frontend
 npm install
+```
+
+Create a `frontend/.env` file:
+
+```env
+VITE_API_URL=http://127.0.0.1:8000
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
