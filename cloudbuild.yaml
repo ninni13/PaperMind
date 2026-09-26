@@ -1,0 +1,44 @@
+steps:
+  # 1. Build backend Docker image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "asia-east1-docker.pkg.dev/$PROJECT_ID/papermind/backend:$COMMIT_SHA"
+      - "-t"
+      - "asia-east1-docker.pkg.dev/$PROJECT_ID/papermind/backend:latest"
+      - "./backend"
+
+  # 2. Push commit-specific image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "asia-east1-docker.pkg.dev/$PROJECT_ID/papermind/backend:$COMMIT_SHA"
+
+  # 3. Push latest image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "asia-east1-docker.pkg.dev/$PROJECT_ID/papermind/backend:latest"
+
+  # 4. Deploy the new image to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "backend"
+      - "--image"
+      - "asia-east1-docker.pkg.dev/$PROJECT_ID/papermind/backend:$COMMIT_SHA"
+      - "--region"
+      - "asia-east1"
+      - "--platform"
+      - "managed"
+      - "--quiet"
+
+images:
+  - "asia-east1-docker.pkg.dev/$PROJECT_ID/papermind/backend:$COMMIT_SHA"
+  - "asia-east1-docker.pkg.dev/$PROJECT_ID/papermind/backend:latest"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
