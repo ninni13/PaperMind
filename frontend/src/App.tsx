@@ -11,7 +11,7 @@ export type Overview = {
   limitations: string[];
 };
 
-const API_URL = 'http://127.0.0.1:8000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 type Paper = { id: number; filename: string; created_at: string };
 type Source = { chunk_index: number; page_number: number; similarity: number };
 type SourceDetail = { chunk_index: number; page_number: number; content: string };
